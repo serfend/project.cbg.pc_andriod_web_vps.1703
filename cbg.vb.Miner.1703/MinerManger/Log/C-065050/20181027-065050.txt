@@ -1,0 +1,14 @@
+06:50:50 :mainThreadVersion:1.0.0
+06:50:50 :startMainThread
+      06:50:50 :listAttachStatus(Main,初始化)
+06:51:29 :mainThreadInit
+  06:51:29 :loadServerInfo()
+  06:51:29 :loadRegSeverInfo()
+      06:51:30 :listAttachStatus(Main,加载核心...Id=125#)
+Date & Time: 06:51:30
+Program Name: 线下交易浏览器
+Error Number: 0
+Error Desc: 
+Log: tryLoadNewCore()
+
+

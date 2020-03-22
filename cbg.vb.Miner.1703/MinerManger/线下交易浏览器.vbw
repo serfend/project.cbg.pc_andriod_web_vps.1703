@@ -1,0 +1,15 @@
+subMain = 40, 64, 756, 514, 
+RegProApi = 75, 75, 791, 524, 
+MainInfo = 0, 0, 716, 449, 
+FrmMain = 50, 49, 766, 761, Z, 428, 20, 1373, 781, C
+mainCore = 0, 0, 1275, 627, 
+CoreList = 286, 286, 1561, 913, 
+ThreadReg = 26, 26, 1301, 653, 
+ServerList = 208, 208, 1483, 835, 
+ServerHander = 234, 234, 1509, 861, 
+AaMain = 104, 104, 1431, 629, 
+clsLogger = 260, 260, 1535, 887, 
+modMsgBoxEx = 130, 130, 1457, 655, 
+modXP = 130, 130, 1405, 757, 
+HttpGetter = 26, 26, 1258, 553, 
+CString = 0, 0, 0, 0, C

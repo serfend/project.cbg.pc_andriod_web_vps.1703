@@ -1,0 +1,2 @@
+06:48:54 :mainThreadVersion:1.0.0
+06:48:54 :startMainThread

@@ -1,0 +1,52 @@
+20:07:29 :mainThreadVersion:1.0.0
+20:07:29 :startMainThread
+  20:07:29 :listAddNewCore(主程序进程,0,Main)
+      20:07:29 :listAttachStatus(Main,初始化)
+20:07:29 :mainThreadInit
+  20:07:29 :loadServerInfo()
+  20:07:29 :loadRegSeverInfo()
+  20:07:30 :tryLoadNewCore()
+      20:07:30 :listAttachStatus(Main,加载核心...Id=125#)
+  20:07:30 :listAddNewCore(125#,2500,C1)
+      20:07:34 :listAttachStatus(Main,加载核心...Id=285#)
+  20:07:34 :listAddNewCore(285#,2500,C2)
+  20:07:34 :removeCore(C1)
+  20:07:35 :removeCore(C2)
+  20:07:36 :tryLoadNewCore()
+      20:07:36 :listAttachStatus(Main,加载核心...Id=125#)
+  20:07:36 :listAddNewCore(125#,2500,C3)
+  20:07:37 :removeCore(C3)
+      20:07:39 :listAttachStatus(Main,加载核心...Id=125#)
+  20:07:39 :listAddNewCore(125#,2500,C4)
+  20:07:40 :removeCore(C4)
+      20:07:44 :listAttachStatus(Main,加载核心...Id=125#)
+  20:07:44 :listAddNewCore(125#,2500,C5)
+  20:07:45 :removeCore(C5)
+      20:07:49 :listAttachStatus(Main,加载核心...Id=125#)
+  20:07:49 :listAddNewCore(125#,2500,C6)
+  20:07:50 :removeCore(C6)
+      20:07:54 :listAttachStatus(Main,加载核心...Id=125#)
+  20:07:54 :listAddNewCore(125#,2500,C7)
+  20:07:55 :removeCore(C7)
+  20:07:56 :tryLoadNewCore()
+      20:07:56 :listAttachStatus(Main,加载核心...Id=125#)
+  20:07:56 :listAddNewCore(125#,2500,C8)
+  20:07:56 :tryLoadNewCore()
+      20:07:56 :listAttachStatus(Main,加载核心...Id=285#)
+  20:07:56 :listAddNewCore(285#,2500,C9)
+  20:07:56 :tryLoadNewCore()
+      20:07:56 :listAttachStatus(Main,加载核心...Id=126#)
+  20:07:56 :listAddNewCore(126#,2500,C10)
+  20:07:56 :tryLoadNewCore()
+      20:07:56 :listAttachStatus(Main,加载核心...Id=159#)
+  20:07:56 :listAddNewCore(159#,2500,C11)
+  20:07:56 :removeCore(C8)
+Date & Time: 20:07:56
+Program Name: MinerManger
+Error Number: 0
+Error Desc: 
+Log: MainMover()get mop thisThreadId
+
+
+      20:07:59 :listAttachStatus(Main,加载核心...Id=125#)
+  20:07:59 :listAddNewCore(125#,2500,C12)

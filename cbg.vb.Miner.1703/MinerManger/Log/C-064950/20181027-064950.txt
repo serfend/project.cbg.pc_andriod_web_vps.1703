@@ -1,0 +1,10 @@
+06:49:50 :mainThreadVersion:1.0.0
+06:49:50 :startMainThread
+      06:49:50 :listAttachStatus(Main,初始化)
+Date & Time: 06:49:51
+Program Name: 线下交易浏览器
+Error Number: 0
+Error Desc: 
+Log: frmMainCmdLoad()
+
+

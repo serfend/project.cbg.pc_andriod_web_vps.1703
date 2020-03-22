@@ -1,0 +1,14 @@
+行 36: 控件 MainOutPut 的类 MSComctlLib.ListView 不是一个已加载的控件类。
+行 42: 属性名 _ExtentX 在 MainOutPut 中是无效的。
+行 43: 属性名 _ExtentY 在 MainOutPut 中是无效的。
+行 44: 属性名 View 在 MainOutPut 中是无效的。
+行 45: 属性名 LabelEdit 在 MainOutPut 中是无效的。
+行 46: 属性名 LabelWrap 在 MainOutPut 中是无效的。
+行 47: 属性名 HideSelection 在 MainOutPut 中是无效的。
+行 48: 属性名 AllowReorder 在 MainOutPut 中是无效的。
+行 49: 属性名 FlatScrollBar 在 MainOutPut 中是无效的。
+行 50: 属性名 FullRowSelect 在 MainOutPut 中是无效的。
+行 51: 属性名 GridLines 在 MainOutPut 中是无效的。
+行 52: 属性名 HoverSelection 在 MainOutPut 中是无效的。
+行 53: 属性名 _Version 在 MainOutPut 中是无效的。
+行 58: 属性名 NumItems 在 MainOutPut 中是无效的。

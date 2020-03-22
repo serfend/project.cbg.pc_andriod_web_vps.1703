@@ -1,0 +1,17 @@
+20:46:44 :mainThreadVersion:1.0.0
+20:46:44 :startMainThread
+  20:46:44 :listAddNewCore(主程序进程,0,Main)
+      20:46:44 :listAttachStatus(Main,初始化)
+20:46:44 :mainThreadInit
+  20:46:44 :loadServerInfo()
+  20:46:44 :loadRegSeverInfo()
+  20:46:46 :tryLoadNewCore()
+      20:46:46 :listAttachStatus(Main,加载核心...Id=125#)
+  20:46:46 :listAddNewCore(125#,2500,C1)
+      20:46:49 :listAttachStatus(Main,加载核心...Id=197#)
+  20:46:49 :listAddNewCore(197#,2500,C2)
+  20:46:51 :removeCore(C1,for:进程已无效)
+  20:46:54 :removeCore(C2,for:进程已无效)
+      20:46:55 :listAttachStatus(Main,加载核心...Id=125#)
+  20:46:55 :listAddNewCore(125#,2500,C3)
+20:46:56 :terminateMainThread

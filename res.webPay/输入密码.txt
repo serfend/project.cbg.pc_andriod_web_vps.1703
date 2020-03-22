@@ -1,0 +1,5 @@
+https://epay.163.com/cashier/m/security/verifyPayItems?v=1544775822868
+securityValid:{"shortPayPassword":"a659783205ef3b0999b48880b655a8fa"}
+orderId:2018121416JY29278585
+envData:{"term":"wap"}
+{"result":"success","errorMsg":null,"errorCode":null,"errorMap":{},"bankUrl":null,"params":null,"data":null}

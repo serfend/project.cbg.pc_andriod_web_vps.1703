@@ -1,0 +1,7 @@
+GET https://xy2-android2.cbg.163.com/cbg-center/pay.py?act=get_epay_sdk_pay_info&platform=android&app_version=2.3.0&device_id=xy2.46e2ee69a7d486af&need_check_license=1&loginToken=3be690cd6f76d47c978b5ba1780ad5e6bca8df&device_name=m3s&orderid_to_epay=174_4421399&app_version_code=2302&os_version=5.1.1&loginId=A3BDF038C022687EF5DEF3A8B02A348DD4506EDB4A74F93626CDAD513C5384F45F2B0AC4A9CC02DA2F13B0DF1FBFDD01&os_version_code=22&os_name=m3s&package_name=com.netease.xy2cbg HTTP/1.1
+Host: xy2-android2.cbg.163.com
+Connection: Keep-Alive
+Accept-Encoding: gzip
+Cookie: cbg_sid=iTVRjXigxC0TDQZqaPB2A9D3gUOTwiD3sJqSOg3t; device_id=xy2.46e2ee69a7d486af; sid=XA3oJDiTPCLXgjSL4O3DyvU2Ey7mDHdgR9ls4GBi; device_id=xy2.46e2ee69a7d486af
+User-Agent: okhttp/3.8.1
+

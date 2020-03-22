@@ -1,0 +1,36 @@
+11:05:38 :mainThreadVersion:1.0.0
+11:05:38 :startMainThread
+  11:05:38 :listAddNewCore(主程序进程,0,Main)
+      11:05:38 :listAttachStatus(Main,初始化)
+11:05:38 :mainThreadInit
+  11:05:38 :loadServerInfo()
+  11:05:38 :loadRegSeverInfo()
+    11:05:52 :editServerList(1->待分配)
+      11:05:52 :listAttachStatus(Main,加载核心...Id=60#)
+  11:05:52 :listAddNewCore(60#,2500,C1)
+  11:05:52 :removeCore(C1)
+      11:05:52 :listAttachStatus(Main,加载核心...Id=60#)
+  11:05:52 :listAddNewCore(60#,2500,C2)
+  11:05:52 :removeCore(C2)
+      11:05:52 :listAttachStatus(Main,加载核心...Id=60#)
+  11:05:52 :listAddNewCore(60#,2500,C3)
+Date & Time: 11:05:52
+Program Name: 线下交易浏览器
+Error Number: 0
+Error Desc: 
+Log: MainMover()get cdlist.interval
+
+
+  11:06:04 :removeCore(C3)
+      11:06:04 :listAttachStatus(Main,加载核心...Id=60#)
+  11:06:04 :listAddNewCore(60#,2500,C4)
+  11:06:04 :removeCore(C4)
+      11:06:04 :listAttachStatus(Main,加载核心...Id=60#)
+  11:06:04 :listAddNewCore(60#,2500,C5)
+Date & Time: 11:06:04
+Program Name: 线下交易浏览器
+Error Number: 0
+Error Desc: 
+Log: MainMover()get cdlist.interval
+
+

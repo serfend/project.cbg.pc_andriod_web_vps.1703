@@ -1,0 +1,17 @@
+16:45:34 :mainThreadVersion:1.0.0
+16:45:34 :startMainThread
+  16:45:34 :listAddNewCore(主程序进程,0,Main)
+      16:45:34 :listAttachStatus(Main,初始化)
+16:45:34 :mainThreadInit
+  16:45:34 :loadServerInfo()
+  16:45:34 :loadRegSeverInfo()
+  16:45:36 :tryLoadNewCore()
+      16:45:36 :listAttachStatus(Main,加载核心...Id=125#)
+  16:45:36 :listAddNewCore(125#,0,C1)
+Date & Time: 16:45:37
+Program Name: 线下交易浏览器
+Error Number: 0
+Error Desc: 
+Log: MainMover()ipSettingB
+
+

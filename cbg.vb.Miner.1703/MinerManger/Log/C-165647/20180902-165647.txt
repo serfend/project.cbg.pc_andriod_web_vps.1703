@@ -1,0 +1,14 @@
+16:56:47 :mainThreadVersion:1.0.0
+16:56:47 :startMainThread
+  16:56:47 :listAddNewCore(主程序进程,0,Main)
+      16:56:47 :listAttachStatus(Main,初始化)
+16:56:47 :mainThreadInit
+  16:56:47 :loadServerInfo()
+  16:56:47 :loadRegSeverInfo()
+Date & Time: 16:56:49
+Program Name: 线下交易浏览器
+Error Number: 0
+Error Desc: 
+Log: removeCore()
+
+

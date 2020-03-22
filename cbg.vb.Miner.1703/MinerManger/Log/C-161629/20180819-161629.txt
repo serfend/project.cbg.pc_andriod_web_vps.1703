@@ -1,0 +1,25 @@
+16:16:29 :mainThreadVersion:1.0.0
+16:16:29 :startMainThread
+  16:16:29 :listAddNewCore(主程序进程,0,Main)
+      16:16:29 :listAttachStatus(Main,初始化)
+16:16:29 :mainThreadInit
+  16:16:29 :loadServerInfo()
+  16:16:29 :loadRegSeverInfo()
+16:16:31 :userStopLoader()
+    16:16:32 :editServerList(2->禁用)
+    16:16:33 :editServerList(3->禁用)
+    16:16:33 :editServerList(5->禁用)
+    16:16:34 :editServerList(8->禁用)
+    16:16:34 :editServerList(16->禁用)
+    16:16:35 :editServerList(15->禁用)
+    16:16:36 :editServerList(22->禁用)
+    16:16:37 :editServerList(28->禁用)
+    16:16:38 :editServerList(31->禁用)
+    16:16:38 :editServerList(40->待分配)
+    16:16:39 :editServerList(40->禁用)
+    16:16:40 :editServerList(39->禁用)
+    16:16:40 :editServerList(48->禁用)
+    16:16:41 :editServerList(49->待分配)
+    16:16:42 :editServerList(49->禁用)
+    16:16:42 :editServerList(50->禁用)
+16:16:45 :terminateMainThread

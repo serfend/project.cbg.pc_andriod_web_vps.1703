@@ -1,0 +1,225 @@
+http://xy2.cbg.163.com/cgi-bin/equipquery.py?act=fair_show_list&server_id=126&areaid=1&page=1&kind_id=45&query_order=create_time+DESC&server_name=龙的传人&kind_depth=2
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="content-language" content="zh-cn" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="Author" content="NetEase" />
+<meta name="Copyright" content="NetEase" />
+<meta name="Keywords" content="藏宝阁,网易,大话西游2经典版,交易平台" />
+<meta name="Description" content="网易大话西游2经典版管方线下交易平台" />
+<title>藏宝阁_《大话西游2经典版》官方线下交易平台</title>
+<script type="text/javascript">
+!function(t,n,r){function e(t){return t>Math.random()}function o(t,n){return t.indexOf(n)>=0}function a(t){var n=b.cookie.match("(^|;)\\s*"+t+"\\s*=\\s*([^;]+)");return n?n.pop():""}function i(t,n,r){t.attachEvent?t.attachEvent("on"+n,r):t.addEventListener(n,r,!1)}function u(t,n){var r=[];if(n){for(var e in n)n.hasOwnProperty(e)&&r.push(e+"="+y(n[e]));t+=(o(t,"?")?"&":"?")+r.join("&")}return t}function c(t,n,r){var e,o=new Image,a=!0,i=function(){clearTimeout(e),o.onload=o.onerror=l,n&&n(a);try{o=l,delete o}catch(t){}},u=function(){a=!1,i()};e=r&&setTimeout(u,r),o.onload=i,o.onerror=u,o.src=t}function f(t,n){t.product=b.domain.split(".")[0];var e=b.referrer;v||(v=a("fingerprint")),t.useragent=navigator.userAgent,e&&(t.from=e),v&&(t.fingerprint=v),c(u(r,t),n)}function s(){return T&&T.now?Math.round(T.now()):(new Date).getTime()}function m(t,n,r){var e=r?w:N,o=n-t;return o<0?(e=E,o=0):o>18e5&&(e=_,o=0),{status:e,duration:o}}function g(t,n){var r=I,e=n;if(j=!1,T){var o=T.timing||{};o.navigationStart&&(r=o.navigationStart),o.loadEventEnd&&(e=o.loadEventEnd),!t&&T.now&&(r=0,e=parseInt(T.now()))}var a=m(r,e,t),i={log:"page_load",status:a.status,time:a.duration};a.status!=w&&(i.time_start=r,i.time_end=e),f(i),setTimeout(function(){},100)}var v,l=null,d=.01,p=.01,h=3e4,w=1,N=-1,E=-2,_=-3,b=t.document,y=t.encodeURIComponent,T=t.performance;if(e(d)){var S,I=s(),j=!0;i(t,"beforeunload",function(){j&&(clearTimeout(S),g(!1,s()))}),i(t,"load",function(){if(j){var t=s();S=setTimeout(function(){g(!0,t)},100)}})}e(p)&&setTimeout(function(){var t=s(),r=u(n+"/images/empty.gif",{v:t});c(r,function(r){var e=m(t,s(),r),o={log:"cdn_ping",status:e.status,domain:n,time:e.duration};f(o)},h)},3e3),function(){var r=!1,e=!0,a=function(t,n){return Object.prototype.toString.call(t)==="[object "+(n||"Object")+"]"},i={},u=function(t){var n=t.target+t.msg;return!!i[n]||(i[n]=!0,!1)},c=function(t){try{if(t.stack){var n=t.stack.match("https?://[^)^\n]+");n=n?n[0]:"";var r=n.match(":(\\d+):(\\d+)");r||(r=[0,0,0]);var e=s(t),o=n.replace(r[0],"");return t.fnName&&(o+=":"+t.fnName),{msg:t.message,info:e,rowNum:r[1],colNum:r[2],target:o}}return t.name&&t.message&&t.description?{target:t.fnName,msg:t.message,info:"name:"+t.name+",desc:"+t.description+",number:"+t.number}:t}catch(n){return{msg:"__parse_error__",info:(n.message||n.toString())+"-"+t.toString()}}},s=function(t){var n=t.stack.replace(/\n/gi,"").split(/\bat\b/).slice(0,9).join("@").replace(/\?[^:]+/gi,""),r=t.toString();return o(n,r)||(n=r+"@"+n),n},m=function(t){v(c(t))},g=function(t){if(!t)return!0;if(!e){var n=t.msg;if(o(n,"ReferenceError")||o(n,"\u672A\u5B9A\u4E49"))return!0}return r||u(t)},v=function(t){if(!g(t)){var n={log:"js_error",filename:t.target,msg:t.msg,info:t.info};t.rowNum&&(n.linenumber=t.rowNum+":"+t.colNum),f(n)}},l=t.onerror;t.onerror=function(n,r,e,o,i){var u=n;i&&i.stack&&(u=s(i)),a(u,"Event")&&(u+=u.type?"--"+u.type+"--"+(u.target?u.target.tagName+"::"+u.target.src:""):""),v({msg:n,info:u,target:r,rowNum:e,colNum:o}),l&&l.apply(t,arguments)},t.addEventListener?t.addEventListener("error",function(t,e){var a=["IMG","SCRIPT","LINK"],i=t.target,u=(i.tagName||"").toUpperCase();if(o(a,u)&&null===i.getAttribute("no-tracer")&&"prefetch"!==i.getAttribute("rel")){var e="LINK"==u?i.href:i.src;if(o(e,"/1.gif?"))return;o(e,n)&&"SCRIPT"==u&&(r=!0),f({log:"js_error",filename:e,msg:"LOAD_FAILED"})}},!0):e=!1;var d,p={watch:function(n,r){return function(){try{return n.apply(this,r||arguments)}catch(r){if(r.fnName=/^function\s+[^\(]*/.exec(n.toString())[0],m(r),!d){var e=t.onerror;t.onerror=function(){},d=setTimeout(function(){t.onerror=e,d=null},50)}throw r}}},reportError:m,send:v};t.CBG_JS_REPORT=p}()}(window,"http://res.xy2.cbg.163.com","//xyq-tracer.cbg.163.com/1.gif");
+</script><!--[if lt IE 7]>
+	<style>
+		.page{width:expression(setWidth(this,988,1280));}
+	</style>
+	<script>
+		function setWidth(element,min,max){
+			min=(min=='none'?0:min);
+			max=(max=='none'?10000:max);
+			element.style.width=(document.body.clientWidth<min+1?min+"px":(document.body.clientWidth>max?max+"px":"100%"));
+			window.attachEvent('onresize',function(){
+			element.style.width=(document.body.clientWidth<min+1?min+"px":(document.body.clientWidth>max?max+"px":"100%"));
+			});
+		}
+	</script>
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/css/default.css?v=0328" media="screen" />
+<style type="text/css">
+	.suggest_con{
+		width:700px;
+		margin:0 auto;
+		font-size:14px;}
+	.suggest_con div{
+		float:left;}
+	.suggest_con textarea{
+		width:600px;
+		height:200px;
+		background-color:#544a3f;
+		border:2px solid #527465;
+		float:left;
+		color:#F4E9D5;
+		padding:4px;
+		}
+</style>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/js/mootools-core-1.3.2.js"></script>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/js/mootools-jsonp.js"></script>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/js/base.js?v=0923"></script>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/js/sprite.js"></script>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/js/sprite-hotq.js"></script>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/js/incsearch_cbg.js"></script>
+<body id="index">
+<script type="text/javascript"> 
+function set_price_cookie(equip_id, reonsale_identify){
+}
+var CgiRootUrl = 'http://xy2.cbg.163.com/cgi-bin';
+var HttpsCgiRootUrl = 'https://xy2.cbg.163.com/cgi-bin';
+var ResUrl = 'http://res.xy2.cbg.163.com';
+
+</script>
+
+<div class="page">
+	
+		<!--页眉-->
+		<div class="head">
+			<h1 class="hide">藏宝阁_《大话西游2经典版》官方线下交易平台</h1>
+			<a class="gameLogo" href="http://xy2.163.com" target="_blank" title="大话西游2经典版">大话西游2经典版</a>
+			<a href="http://xy2.cbg.163.com" style="position:relative; top:0; left:0; display:block; width:210px; height:70px; text-indent:-9999px; line-height:70px; ov    erflow:hidden; float:left;">藏宝阁首页</a>
+			<a class="mobileLink" href="http://xy2.cbg.163.com/app/?from=cbgtoplink" target="_blank" title="手机版下载">手机版下载</a> 
+		</div>
+
+
+        
+<script language="javascript">
+		function check_input(input_data)
+		{
+
+				var img_validate = input_data.image_validate.value;
+				var match_obj = /^[0-9a-zA-Z]{4,6}$/;
+				if (!match_obj.test(img_validate))
+				{
+					alert("请输入正确的验证码");
+					input_data.image_validate.select();
+					return false;
+				}
+				
+
+				return true;
+		}
+
+</script>
+		<!--页面内容-->
+		<div class="cont">
+        	
+            
+            <div id="login_box">
+            	
+                <div class="autoPass">
+                    <form name="yanzhengma" method="post" action="http://xy2.cbg.163.com/cgi-bin/login.py" onsubmit="return check_input(this)">
+                        <span style="font-size:16px"><strong>请输入验证码后继续访问</strong></span>
+                        	<p style="margin-bottom: -12px; margin-top: 15px; margin-left: 59px;">
+                            <img id="validate_img" style="cursor:pointer; position:relative; top:5px;" onclick="set_validate_img_url()"/> <a href="#" style="font-size:12px;" onclick="set_validate_img_url();return false;">换一张</a>                        		
+                        	</p>
+                        <dl style="height:100%">
+                            <dt><label>验证码:</label></dt>
+                            <dd>
+<input type="text" class="text" id="image_validate" name="image_value" tabindex="1" style="height:26px" /> 
+				<script type="text/javascript">
+					function set_validate_img_url(){
+						var img = document.getElementById("validate_img");
+						img.src = CgiRootUrl + "/show_captcha.py?act=require_auth_captcha&stamp=" + Math.random();
+					} 
+					set_validate_img_url();
+					if(navigator.userAgent.indexOf("Firefox")>0)
+					{
+						window.onunload = set_validate_img_url;//for firefox
+						window.onbeforeunload=function(){window.onunload = '';}
+					}
+				</script>
+							</dd>
+                        </dl>
+                        <div class="align-center" style="clear: both;">
+								<input type="hidden" name="server_id" value="<!--server_id-->"/>
+								<input type="hidden" name="next_url" value="/cgi-bin/equipquery.py?act=fair_show_list&amp;server_id=126&amp;areaid=1&amp;page=1&amp;kind_id=45&amp;query_order=create_time+DESC&amp;server_name=姒瑧娈戞导鐘辨眽&amp;kind_depth=2"/>
+								<input type="hidden" name="act" value="do_captcha_auth"/>
+								<input type="hidden" name="overall_search_token" value="" />
+                        	<input type="submit" class="short" value="确定"></input>
+                        	<input type="button" class="short" onclick="window.location='http://xy2.cbg.163.com'" value="返回首页"></input>
+                        </div>
+                    </form>
+                </div>  
+     
+            </div>
+
+<script language="javascript">
+var hide_latest_views = true;
+</script>
+            
+            <div class="blank"></div>
+            
+            <script language="javascript" type="text/javascript" src="/help/help.js"></script>
+        </div>
+		
+		<div class="foot" id="NIE-copyRight"></div>
+	</div>
+
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/js/equip_desc_parser.js"></script>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/js/show_tips.js?v=0116"></script>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/js/role_info_setting.js"></script>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/js/show_role_detail.js"></script>
+<script>
+var StorageTypeEquip = 1;
+var StorageTypePet   = 2;
+var StorageTypeMoney = 3;
+var StorageTypeRole  = 4;	
+var ResUrl = "http://res.xy2.cbg.163.com";
+</script>
+
+<div id="equip_tips_template" style="display:none">
+<!--	
+	   	<div class="hd"></div>
+		<div class="bd">
+			<div class="largePic"><img src="$2$3" /></div>
+				<div class="introText" style="text-align:left;width:410px; float:left; display:inline; padding:0;">
+				<p class="yellow">$4</p>
+				<p class="white">$5</p>
+				<p class="yellow">$6</p>
+				</div>
+			<div class="float-clear"></div>
+		</div>
+		<div class="ft"></div>
+-->
+</div>
+
+<div id="equip_tips_template_small" style="display:none">
+<!--	
+	   	<div class="hd"></div>
+		<div class="bd">
+			<div class="largePic"><img src="$2$3" /></div>
+				<div class="introText" style="text-align:left;width:230px; float:left; display:inline; padding:0;">
+				<p class="yellow">$4</p>
+				<p class="white">$5</p>
+				<p class="yellow">$6</p>
+				</div>
+			<div class="float-clear"></div>
+		</div>
+		<div class="ft"></div>
+-->
+</div>
+
+<div id="role_tips_template" style="display:none">
+<!--	
+	   	<div class="hd"></div>
+		<div class="bd">
+			<div class="largePic"><img src="$2" /></div>
+				<div class="introText" style="text-align:left;width:230px; float:left; display:inline; padding:0;">
+				<dl>
+					<dt>昵称：</dt><dd>$3</dd>
+					<dt>ID：</dt><dd>$4</dd>
+					<dt>等级：</dt><dd>$5</dd>
+					<dt>种族：</dt><dd>$6</dd>
+					<dt>造型：</dt><dd>$7</dd>
+					<dt>生活职业：</dt><dd>$8</dd>
+				</dl>
+				</div>
+			<div class="float-clear"></div>
+		</div>
+		<div class="ft"></div>
+-->
+</div>
+
+<!-- NetEase Analytics code 2006-06-16 -->
+<script src="//analytics.163.com/ntes.js" type="text/javascript" no-tracer></script>
+<script type="text/javascript">
+_ntes_nacc = "cbgxy2"; //站点ID。
+window.neteaseTracker && neteaseTracker();
+</script>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/js/cbg_ad_lib.js"></script>
+<script type="text/javascript" src="//nie.res.netease.com/comm/js/jquery(mixNIE).last.js"></script>
+<script type="text/javascript">window.jQuery && jQuery.noConflict();</script>
+<script type="text/javascript" src="http://res.xy2.cbg.163.com/rc2869ab535c75f4de0d65/js/show_banner_ad.js" no-tracer></script>
+</body>
+</html>

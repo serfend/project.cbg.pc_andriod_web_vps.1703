@@ -1,0 +1,9 @@
+12:41:41 :mainThreadVersion:1.0.0
+12:41:41 :startMainThread
+  12:41:41 :listAddNewCore(主程序进程,0,Main)
+      12:41:41 :listAttachStatus(Main,初始化)
+12:41:41 :mainThreadInit
+  12:41:41 :loadServerInfo()
+  12:41:41 :loadRegSeverInfo()
+  12:41:42 :tryLoadNewCore()
+12:41:47 :terminateMainThread

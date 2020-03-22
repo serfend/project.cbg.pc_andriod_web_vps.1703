@@ -1,0 +1,9 @@
+frmMain = 44, 58, 757, 657, , 22, 29, 735, 629, C
+modMsgBoxEx = 50, 50, 747, 514, 
+modXP = 75, 75, 772, 539, 
+CCmdCtl = 0, 0, 795, 299, 
+RegProApi = 25, 25, 820, 324, 
+CString = 0, 0, 0, 0, C
+CStringBuilder = 0, 0, 0, 0, C
+Mover = 0, 0, 695, 464, 
+AaMain = 0, 0, 0, 0, C

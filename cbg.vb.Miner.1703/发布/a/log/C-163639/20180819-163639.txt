@@ -1,0 +1,18 @@
+16:36:39 :mainThreadVersion:1.0.0
+16:36:39 :startMainThread
+  16:36:39 :listAddNewCore(主程序进程,0,Main)
+      16:36:39 :listAttachStatus(Main,初始化)
+16:36:39 :mainThreadInit
+  16:36:39 :loadServerInfo()
+  16:36:39 :loadRegSeverInfo()
+      16:36:44 :listAttachStatus(Main,加载核心...Id=125#)
+  16:36:44 :listAddNewCore(125#,0,C1)
+      16:36:44 :listAttachStatus(Main,加载核心...Id=382#)
+  16:36:44 :listAddNewCore(382#,0,C2)
+Date & Time: 16:36:45
+Program Name: MinerManager
+Error Number: 0
+Error Desc: 
+Log: MainMover()loading this thread
+
+
