@@ -1,0 +1,11 @@
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\bin\x86\Debug\EquipSettingLoader.exe
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\bin\x86\Debug\EquipSettingLoader.pdb
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\obj\x86\Debug\EquipSettingLoader.Form1.resources
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\obj\x86\Debug\EquipSettingLoader.Properties.Resources.resources
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\obj\x86\Debug\EquipSettingLoader.csproj.GenerateResource.cache
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\obj\x86\Debug\EquipSettingLoader.csproj.CoreCompileInputs.cache
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\obj\x86\Debug\EquipSettingLoader.exe
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\obj\x86\Debug\EquipSettingLoader.pdb
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\bin\x86\Debug\EquipSettingLoader.exe.CodeAnalysisLog.xml
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\bin\x86\Debug\EquipSettingLoader.exe.lastcodeanalysissucceeded
+D:\aserfend\workSpace\repos\projects\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\obj\x86\Debug\EquipSettingLoader.csprojAssemblyReference.cache
