@@ -173,7 +173,6 @@ namespace 订单信息服务器
 				Task.WaitAll(new Task[] { userInput });
 				//item.BillInfo.OrderId = root.FirstBill.orderId;
 				//修改为广播
-				var str = JsonConvert.SerializeObject(item);
 				foreach (ListViewItem clientIpView in LstConnection.Items)
 				{
 					if (clientIpView.SubItems[1].Text == "phone")

@@ -73,8 +73,17 @@ namespace 订单信息服务器
 			server.OnConnect += Server_OnTcpConnect;
 			server.OnDisconnect += Server_OnTcpDisconnect;
 			server.OnMessage += Server_OnTcpMessage;
+			server.OnRawMessage += Server_OnRawMessage;
 			server.OnHttpMessage += Server_OnHttpMessage;
 			ServerCallBackStatic.Init(this);
+		}
+
+		private void Server_OnRawMessage(object sender, ClientMessageEventArgs e)
+		{
+			this.Invoke((EventHandler)delegate
+			{
+				AppendLog($"raw:{e.RawString}");
+			});
 		}
 
 		private void Server_OnHttpMessage(object sender, ClientHttpMessageEventArgs e)
