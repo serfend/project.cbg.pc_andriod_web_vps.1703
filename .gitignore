@@ -1,0 +1,9 @@
+
+*.exe
+*.pdb
+*.xml
+*.ide-wal
+*.ide-shm
+*.ide
+*.config
+*.cache

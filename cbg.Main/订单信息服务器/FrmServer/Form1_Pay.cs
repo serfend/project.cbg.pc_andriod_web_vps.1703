@@ -146,88 +146,12 @@ namespace 订单信息服务器
 		}
 
 		/// <summary>
-		///
-		/// </summary>
-		/// <param name="serverNo"></param>
-		/// <param name="InnerInfo"></param>
-		/// <param name="callback">完成付款流程回调</param>
-		public void PayCurrentBill(string serverNo, string InnerInfo = "", Action<string> callback = null)
-		{
-			AppendLog($"开始对{InnerInfo}进行付款");
-			if (_payServerHdl.ContainsKey(serverNo))
-			{
-				var phoneTarget = _payServerHdl[serverNo];
-				if (_paySession.ContainsKey(phoneTarget))
-				{
-					//TODO 获取支付凭证并付款
-					var session = _paySession[phoneTarget];
-					var item = payClient[payClientIp[phoneTarget]];
-					item.ViewItem.SubItems[1].Text = $"处理{serverNo}订单";
-					if (!IpCheckBeforePay.Checked || MessageBox.Show(this, $"订单:\n{InnerInfo}", "付款确认", MessageBoxButtons.YesNo) == DialogResult.Yes)
-					{
-						//PayCurrentBill(session,(x)=> {
-						//	callback?.Invoke(x);
-						//	item.ViewItem.SubItems[1].Text = x;
-						//});
-					}
-				}
-				else
-				{
-					callback?.Invoke($"当前区{serverNo}管理的账号{phoneTarget}无支付凭证");
-				}
-			}
-			else
-			{
-				callback?.Invoke($"当前区{serverNo}暂无管理的账号");
-			};
-		}
-
-		/// <summary>
-		/// 提交当前订单付款行为
-		/// 【future】当密码或将军令为空时，将从基类中获取数据
-		/// </summary>
-		/// <param name="name">下单用户名称</param>
-		/// <param name="session">付款凭证</param>
-		/// <param name="psw">预置密码</param>
-		private void PayCurrentBill(string name, string session, string psw = null, Action<string> callback = null)
-		{
-			if (!payClientIp.ContainsKey(name))
-			{
-				callback?.Invoke($"用户名{name}所对应的浏览器未开启");
-				return;
-			};
-			if (!payClient.ContainsKey(payClientIp[name]))
-			{
-				callback?.Invoke($"浏览器终端[{name}]未启动");
-				return;
-			}
-			var root = new BillInfo(session);
-			var getBillInfo = new Task(() =>
-			{
-				//try
-				//{
-				//	root.GetData(10,callback);
-				//}
-				//catch (Exception ex)
-				//{
-				//	anyException = true;
-				//	callback?.Invoke($"订单失败:{ex.Message}  z");
-				//	return;
-				//}
-			});
-
-			getBillInfo.Start();
-			Task.WaitAll(new Task[] { getBillInfo });
-		}
-
-		/// <summary>
 		/// 广播到所有终端
 		/// </summary>
 		/// <param name="item"></param>
-		public void PayCurrentBill(Action<string> callback = null)
+		public void PayCurrentBill(EquipBaseInfo equipInfo, Action<string> callback = null)
 		{
 			NewBillMessage item = null;
-
 			var userInput = new Task(() =>
 			{
 				var authKey = AuthKey;
@@ -239,7 +163,8 @@ namespace 订单信息服务器
 					{
 						Ekey = authKey,
 						Psw = "111111",
-					}
+					},
+					Equip = equipInfo
 				};
 			});
 			var t = new Thread(() =>
@@ -249,11 +174,16 @@ namespace 订单信息服务器
 				//item.BillInfo.OrderId = root.FirstBill.orderId;
 				//修改为广播
 				var str = JsonConvert.SerializeObject(item);
-				foreach (var client in payClient)
+				foreach (ListViewItem clientIpView in LstConnection.Items)
 				{
-					client.Value?.Session?.Send(str);
+					if (clientIpView.SubItems[1].Text == "phone")
+					{
+						var clientIp = clientIpView.SubItems[2].Text;
+						var client = server[clientIp];
+						client.Send(item);
+					}
 				}
-				callback?.Invoke($"付款信息已提交至浏览器插件");
+				callback?.Invoke($"付款信息已提交至终端");
 			})
 			{ IsBackground = true };
 			t.Start();
@@ -262,7 +192,7 @@ namespace 订单信息服务器
 		/// <summary>
 		/// 检查订单号是否被处理过
 		/// </summary>
-		private Dictionary<string, bool> _BillRecord = new Dictionary<string, bool>();
+		public Dictionary<string, EquipBaseInfo> _BillRecord = new Dictionary<string, EquipBaseInfo>();
 
 		private string lastExceptAuthCode;
 
@@ -308,6 +238,7 @@ namespace 订单信息服务器
 				var ISingleEnergyRate = tmp[7];
 				var BuyUrl = tmp[8];
 				var serverNum = tmp[9];
+
 				if (_BillRecord.ContainsKey(BuyUrl))
 				{
 					//AppendLog(ordersn + "已出现过此订单," + serverName);
@@ -322,7 +253,16 @@ namespace 订单信息服务器
 					priceNumAssume = Convert.ToDouble(price[1]);
 				}
 				var priceMinRequireRate = Convert.ToDouble(IpMinHandlePrice.Text) / 100;
-				_BillRecord.Add(BuyUrl, true);
+				var goodItem = new EquipBaseInfo()
+				{
+					Name = goodName,
+					Server = serverName,
+					Level = Rank,
+					PriceAssume = priceNumAssume.ToString(),
+					PriceRequire = priceNum.ToString(),
+					Url = BuyUrl
+				};
+				_BillRecord.Add(BuyUrl, goodItem);
 				LstGoodShow.Items.Insert(0, new ListViewItem(tmp));
 				if (LstGoodShow.Items.Count > 10) LstGoodShow.Items[10].Remove();
 				var priceNumAssumeMinRequire = priceNumAssume * priceMinRequireRate;

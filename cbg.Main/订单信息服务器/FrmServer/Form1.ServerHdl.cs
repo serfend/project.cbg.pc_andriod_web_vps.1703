@@ -21,29 +21,38 @@ namespace 订单信息服务器
 	/// <summary>
 	/// 用于记录间隔时间平均值
 	/// </summary>
-	public class TimeTicker:HiperTicker
+	public class TimeTicker : HiperTicker
 	{
-		private int maxRecordTime=10;
+		private int maxRecordTime = 10;
+
 		public TimeTicker()
 		{
 		}
+
 		/// <summary>
 		/// 最大记录次数，默认为10
 		/// </summary>
-		public int MaxRecordTime { get => maxRecordTime; set {
+		public int MaxRecordTime
+		{
+			get => maxRecordTime; set
+			{
 				if (value < 1) return;
 				maxRecordTime = value;
-			} }
-		private int offsetTime=0;
+			}
+		}
+
+		private int offsetTime = 0;
+
 		/// <summary>
 		/// 更新计时开始点并偏移
 		/// </summary>
 		/// <param name="offsetTime">偏移量</param>
-		public void RecordBegin(int offsetTime=0)
+		public void RecordBegin(int offsetTime = 0)
 		{
 			this.offsetTime = offsetTime;
 			Record();
 		}
+
 		/// <summary>
 		/// 结束本次计时
 		/// </summary>
@@ -53,9 +62,11 @@ namespace 订单信息服务器
 			return (Duration / 1000 - offsetTime);
 		}
 	}
+
 	public partial class Form1
 	{
 		private Dictionary<string, TimeTicker> _dicVpsWorkBeginTime = new Dictionary<string, TimeTicker>();
+
 		private void Initserver()
 		{
 			server = new TcpServer(8009);
@@ -70,7 +81,8 @@ namespace 订单信息服务器
 		{
 			Server_OnHttpMessageResponse(e.Message, e.Response);
 		}
-		private void Server_OnHttpMessageResponse(TcpHttpMessage x,TcpHttpResponse s)
+
+		private void Server_OnHttpMessageResponse(TcpHttpMessage x, TcpHttpResponse s)
 		{
 			var cst = new StringBuilder();
 			cst.AppendLine($"<h1>Hey,测试服务器已开启</h1><br><p>当前连接数:{LstConnection.Items.Count }</p>");
@@ -92,7 +104,8 @@ namespace 订单信息服务器
 			{
 				case "Status":
 					{
-						this.Invoke((EventHandler)delegate {
+						this.Invoke((EventHandler)delegate
+						{
 							var clientNum = this.LstConnection.Items.Count;
 							var columnsNum = LstConnection.Columns.Count;
 							cst.AppendLine($"<p>当前状态共有{clientNum}个连接</p><br>");
@@ -164,7 +177,7 @@ namespace 订单信息服务器
 						}
 						else
 						{
-							targetClient.Send(cmdInfo[1],0);
+							targetClient.Send(cmdInfo[1], 0);
 							cst.AppendLine($"已向终端{targetClient.AliasName}发送指令{cmdInfo[1]}");
 						}
 						break;
@@ -193,30 +206,30 @@ namespace 订单信息服务器
 			}
 			catch (Exception ex)
 			{
-				new Thread(() => {
+				new Thread(() =>
+				{
 					var info = $"接收发生异常:{ex.Message}\n{e.RawString}";
 					Console.WriteLine(info);
 					try
 					{
-						this.Invoke((EventHandler)delegate {
+						this.Invoke((EventHandler)delegate
+						{
 							AppendLog(info);
 						});
 					}
-					catch 
+					catch
 					{
-
 					}
 				}).Start();
 				return;
 			}
 		}
-		
-		
 
 		private void Server_OnTcpDisconnect(object sender, ClientDisconnectEventArgs e)
 		{
 			var x = sender as TcpConnection;
-			this?.Invoke((EventHandler)delegate {
+			this?.Invoke((EventHandler)delegate
+			{
 				AppendLog("已断开:" + x.Ip);
 				lock (_ConnectVpsClientLstViewItem)
 				{
@@ -224,20 +237,19 @@ namespace 订单信息服务器
 					LstConnection.Items.Remove(_ConnectVpsClientLstViewItem[x.Ip]);
 					_ConnectVpsClientLstViewItem.Remove(x.Ip);
 				}
-					
-					_dicVpsWorkBeginTime.Remove(x.Ip);
-					_clientPayUser.Remove(x.Ip);
-					AvailableVps[x.Ip] = false;
-					if (allocVps.ContainsKey(x.Ip))
+
+				_dicVpsWorkBeginTime.Remove(x.Ip);
+				_clientPayUser.Remove(x.Ip);
+				AvailableVps[x.Ip] = false;
+				if (allocVps.ContainsKey(x.Ip))
+				{
+					var vps = allocVps[x.Ip];
+					foreach (var server in vps.HdlServer)
 					{
-						var vps = allocVps[x.Ip];
-						foreach (var server in vps.HdlServer)
-						{
-							serverInfoList[server].NowNum++;
-						}
-						allocVps.Remove(x.Ip);
+						serverInfoList[server].NowNum++;
 					}
-				
+					allocVps.Remove(x.Ip);
+				}
 			});
 		}
 
@@ -246,7 +258,8 @@ namespace 订单信息服务器
 			try
 			{
 				var x = sender as TcpConnection;
-				this.Invoke((EventHandler)delegate {
+				this.Invoke((EventHandler)delegate
+				{
 					AppendLog("已连接:" + x.Ip);
 					var info = new string[7];
 					info[1] = x.IsLocal ? "主机" : "终端";
@@ -270,11 +283,17 @@ namespace 订单信息服务器
 			}
 		}
 
-
+		/// <summary>
+		/// vps进行等待
+		/// </summary>
+		/// <param name="InnerInfo"></param>
+		/// <param name="targetItem"></param>
+		/// <param name="s"></param>
 		public void ClientWaiting(JToken InnerInfo, ListViewItem targetItem, TcpConnection s)
 		{
 			int value = Convert.ToInt32(InnerInfo["V"]);
-			if (value==0) {
+			if (value == 0)
+			{
 				var vpsInterval = Convert.ToInt32(InnerInfo["G"]);
 				var hdlNum = Convert.ToInt32(InnerInfo["H"]);
 				var intervals = _dicVpsWorkBeginTime[s.Ip].RecordEnd();
@@ -288,7 +307,7 @@ namespace 订单信息服务器
 				//已开始作业
 				targetItem.SubItems[3].Text = "采集作业中";
 			}
-			else if(value == 101)
+			else if (value == 101)
 			{
 				targetItem.SubItems[3].Text = $"即将开始";
 			}
@@ -298,10 +317,16 @@ namespace 订单信息服务器
 			}
 		}
 
+		/// <summary>
+		/// 终端名称发生修改
+		/// </summary>
+		/// <param name="InnerInfo"></param>
+		/// <param name="targetItem"></param>
+		/// <param name="s"></param>
 		public void NameModefied(JToken InnerInfo, ListViewItem targetItem, TcpConnection s)
 		{
 			targetItem.SubItems[0].Text = InnerInfo["NewName"]?.ToString();
-			bool flag = (s.AliasName == "null" && InnerInfo["AskForSynInit"]!=null);//首次初始化时尝试发送vps终端初始化
+			bool flag = (s.AliasName == "null" && InnerInfo["AskForSynInit"] != null);//首次初始化时尝试发送vps终端初始化
 
 			s.AliasName = targetItem.SubItems[0].Text;
 			if (flag)
@@ -311,6 +336,12 @@ namespace 订单信息服务器
 			}
 		}
 
+		/// <summary>
+		/// 服务器初始化完成
+		/// </summary>
+		/// <param name="innerInfo"></param>
+		/// <param name="targetItem"></param>
+		/// <param name="s"></param>
 		public void InitComplete(JToken innerInfo, ListViewItem targetItem, TcpConnection s)
 		{
 			s.IsLocal = true;
@@ -321,9 +352,10 @@ namespace 订单信息服务器
 			var tmp = new List<SynSingleFile>();
 			foreach (var f in dic.EnumerateFiles())
 			{
-				tmp.Add(new SynSingleFile() {
+				tmp.Add(new SynSingleFile()
+				{
 					Name = f.Name,
-					Version= HttpUtil.GetMD5ByMD5CryptoService(f.FullName)
+					Version = HttpUtil.GetMD5ByMD5CryptoService(f.FullName)
 				});
 			}
 			if (tmp.Count > 0)
@@ -336,7 +368,13 @@ namespace 订单信息服务器
 			}
 		}
 
-		public void ClientConnect(JToken InnerInfo,ListViewItem targetItem,TcpConnection s)
+		/// <summary>
+		/// 当终端连接进来时
+		/// </summary>
+		/// <param name="InnerInfo"></param>
+		/// <param name="targetItem"></param>
+		/// <param name="s"></param>
+		public void ClientConnect(JToken InnerInfo, ListViewItem targetItem, TcpConnection s)
 		{
 			var hdlServerName = InnerInfo["Name"]?.ToString();
 			var version = InnerInfo["Version"]?.ToString();
@@ -373,7 +411,6 @@ namespace 订单信息服务器
 					}
 				case "vps":
 					{
-						
 						targetItem.SubItems[3].Text = "初始化";
 						s.ID = InnerInfo["DeviceId"]?.ToString();
 						var clientName = regSettingVps.In(s.ID).GetInfo("Name", targetItem.SubItems[0].Text);
@@ -381,10 +418,22 @@ namespace 订单信息服务器
 						s.Send(new CmdSetClientNameMessage(clientName));//用于确认当前名称并初始化
 						break;
 					}
+				case "phone":
+					{
+						targetItem.SubItems[3].Text = "手机脚本";
+						s.ID = InnerInfo["DeviceId"]?.ToString();
+						var clientName = regSettingVps.In(s.ID).GetInfo("Name", targetItem.SubItems[0].Text);
+						targetItem.SubItems[0].Text = clientName;
+						s.Send(new CmdSetClientNameMessage(clientName));//用于确认当前名称并初始化
+						break;
+					}
 			}
-
 		}
 
+		/// <summary>
+		/// 将某个vps设置为可用
+		/// </summary>
+		/// <param name="ip"></param>
 		public void NewVpsAvailable(string ip)
 		{
 			hdlVpsTaskScheduleQueue.Enqueue(ip);//s.Send("<serverRun>");//无需同步

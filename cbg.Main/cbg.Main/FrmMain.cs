@@ -131,7 +131,7 @@ namespace cbg.Main
 		#region 逻辑
 
 		private double price, assumePrice;
-		private string targetUrl;
+		private string targetUrl="null";
 
 		private void ReceiveMessage(object sender, ClientMessageEventArgs e)
 		{
@@ -370,6 +370,7 @@ namespace cbg.Main
 		{
 			Program.Tcp?.Send(new CmdSubmitBillMessage()
 			{
+				TargetUrl = targetUrl
 			});
 		}
 

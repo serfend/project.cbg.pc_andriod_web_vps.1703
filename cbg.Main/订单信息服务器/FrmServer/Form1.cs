@@ -15,6 +15,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using 订单信息服务器.Bill;
+using 订单信息服务器.WebServerControl;
 
 namespace 订单信息服务器
 {
@@ -36,7 +37,7 @@ namespace 订单信息服务器
 			StartTaskSchedule();
 			InitPaySession();
 			//ServerJsManager.Init();
-			InitWebBrowserControl();
+			//InitWebBrowserControl();  // websocket方式连接
 			LstConnection.AfterLabelEdit += CheckIfUserEditName;
 		}
 
@@ -151,6 +152,20 @@ namespace 订单信息服务器
 			}
 		}
 
+		private EquipBaseInfo GetEquipBaseInfoFromSelect(ListViewItem item)
+		{
+			var price = item.SubItems[2].Text.Split('/');
+			return new EquipBaseInfo()
+			{
+				Name = item.SubItems[1].Text,
+				Server = item.SubItems[0].Text,
+				Level = item.SubItems[3].Text,
+				Url = item.SubItems[8].Text,
+				PriceAssume = price[1],
+				PriceRequire = price[0]
+			};
+		}
+
 		private void LstGoodShow_DoubleClick_1(object sender, EventArgs e)
 		{
 			var target = LstGoodShow.SelectedItems[0];
@@ -189,7 +204,15 @@ namespace 订单信息服务器
 
 		private void CmdPayBill_Click(object sender, EventArgs e)
 		{
-			PayCurrentBill();
+			if (LstGoodShow.SelectedItems.Count == 0)
+			{
+				MessageBox.Show("请先选中需要下单的商品");
+				if (LstGoodShow.Items.Count > 0)
+					LstGoodShow.Items[0].Selected = true;
+				return;
+			}
+			var info = GetEquipBaseInfoFromSelect(LstGoodShow.SelectedItems[0]);
+			PayCurrentBill(info);
 			//修改为直接广播
 			//var targetUser = InputBox.ShowInputBox("输入付款浏览器名称", "输入付款浏览器名称", "");
 			//if (!_paySession.ContainsKey(targetUser))
