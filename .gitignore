@@ -1,4 +1,4 @@
-
+*.dll
 *.exe
 *.pdb
 *.xml
@@ -6,7 +6,4 @@
 *.ide-shm
 *.ide
 *.config
-*.cache
-cbg.Main/.vs/cbg.Main/v16/.suo
-*.ide
 *.cache
