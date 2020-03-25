@@ -29,3 +29,17 @@ C:\Users\huawei\Documents\GitHub\大话西游藏宝阁\Project.1703.DHXY-cbg\多
 C:\Users\huawei\Documents\GitHub\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\obj\Debug\EquipSettingLoader.exe
 C:\Users\huawei\Documents\GitHub\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\obj\Debug\EquipSettingLoader.pdb
 C:\Users\huawei\Documents\GitHub\大话西游藏宝阁\Project.1703.DHXY-cbg\多开浏览器子线程\EquipSettingLoader\obj\Debug\EquipSettingLoader.csprojAssemblyReference.cache
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\EquipSettingLoader.exe.config
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\EquipSettingLoader.exe
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\EquipSettingLoader.pdb
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\EquipSettingLoader.exe.CodeAnalysisLog.xml
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\EquipSettingLoader.exe.lastcodeanalysissucceeded
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\Newtonsoft.Json.dll
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\Newtonsoft.Json.xml
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.Form1.resources
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.Properties.Resources.resources
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csproj.GenerateResource.cache
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csproj.CopyComplete
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.exe
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.pdb

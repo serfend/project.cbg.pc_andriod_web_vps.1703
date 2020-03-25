@@ -93,7 +93,7 @@ namespace Server
 			{
 				frm.Invoke((EventHandler)delegate
 				{
-					frm.AppendLog($"用户主动下单的商品不存在:{targetUrl}");
+					frm.AppendLog("浏览器", $"用户主动下单的商品不存在:{targetUrl}");
 				});
 				return;
 			}
@@ -102,7 +102,7 @@ namespace Server
 			{
 				frm.Invoke((EventHandler)delegate
 				{
-					frm.AppendLog(result);
+					frm.AppendLog("浏览器", result);
 				});
 			});
 		}
@@ -156,7 +156,7 @@ namespace Server
 
 		private static void ServerCallBack_MsgSynFileList(ClientMessageEventArgs e)
 		{
-			frm.AppendLog("vps" + S.AliasName + "请求获取文件");
+			frm.AppendLog(S.AliasName, "vps请求获取文件");
 			frm.HdlVpsFileSynRequest(e.Message["List"], S);
 		}
 
@@ -230,7 +230,7 @@ namespace Server
 
 		private static void ServerCallBack_Default(ClientMessageEventArgs e)
 		{
-			frm.AppendLog($"新消息[{S.AliasName}] {e.Title}:{e.Message["Content"]}");
+			frm.AppendLog(S.AliasName, $"未知消息:{e.Title}:{e.Message["Content"]}");
 			TargetItem.SubItems[3].Text = e.Title;
 		}
 	}

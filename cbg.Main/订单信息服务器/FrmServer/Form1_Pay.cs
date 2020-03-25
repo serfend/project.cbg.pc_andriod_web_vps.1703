@@ -162,7 +162,7 @@ namespace 订单信息服务器
 					BillInfo = new NewBillMessage.SubmitBillInfo()
 					{
 						Ekey = authKey,
-						Psw = "111111",
+						Psw = IpScriptPayPsw.Text,
 					},
 					Equip = equipInfo
 				};
@@ -202,7 +202,7 @@ namespace 订单信息服务器
 				if (value.Length != 6)
 				{
 					if (lastExceptAuthCode == value)
-						AppendLog($"【警告】新的将军令可能有误,其为:{value}");
+						AppendLog("系统", $"【警告】新的将军令可能有误,其为:{value}");
 					lastExceptAuthCode = value;
 					return;
 				}
@@ -224,7 +224,7 @@ namespace 订单信息服务器
 				var tmp = InnerInfo.Split(new string[] { "##" }, StringSplitOptions.None);
 				if (tmp.Length < 10)
 				{
-					AppendLog($"{sender.AliasName} 无效的订单信息:{InnerInfo}");
+					AppendLog(sender.AliasName, $"无效的订单信息:{InnerInfo}");
 					return;
 				}
 				var serverName = tmp[0];
@@ -243,7 +243,7 @@ namespace 订单信息服务器
 					//AppendLog(ordersn + "已出现过此订单," + serverName);
 					return;
 				}
-				AppendLog(priceInfo);
+				AppendLog(sender.AliasName, priceInfo);
 				var price = priceInfo.Split('/');
 				double priceNum = 0, priceNumAssume = 0;
 				if (price.Length == 2)
@@ -267,12 +267,13 @@ namespace 订单信息服务器
 				var priceNumAssumeMinRequire = priceNumAssume * priceMinRequireRate;
 				if (priceNum > priceNumAssumeMinRequire)
 				{
-					AppendLog($"{serverName} {goodName}:标价过高{priceNum}/最高估价{priceNumAssumeMinRequire}");
+					AppendLog(sender.AliasName, $"{serverName} {goodName}:标价过高{priceNum}/最高估价{priceNumAssumeMinRequire}");
 					return;
 				}
 				else
 				{
-					AppendLog($"新的订单:{priceNum}/{priceNumAssumeMinRequire}@ {BuyUrl}");
+					AppendLog(sender.AliasName, $"新的订单:{priceNum}/{priceNumAssumeMinRequire}@ {BuyUrl}");
+					PayCurrentBill(goodItem);
 					var earnNum = priceNumAssume - priceNum;
 					if (earnNum / priceNum < 5)
 					{
@@ -282,6 +283,7 @@ namespace 订单信息服务器
 					}
 				}
 				SendCmdToAllBrowserClient(new SfTcp.TcpMessage.CmdCheckBillMessage(SfTcp.TcpMessage.CmdCheckBillMessage.Action.submit, BuyUrl, priceNumAssume, priceNum));
+
 				//TODO 发送到脚本终端 SendCmdToAllScriptClient(new SfTcp.TcpMessage.CmdCheckBillMessage(SfTcp.TcpMessage.CmdCheckBillMessage.Action.submit,BuyUrl,priceNumAssume,priceNum));
 				ManagerHttpBase.FitWebShowTime++;
 			}

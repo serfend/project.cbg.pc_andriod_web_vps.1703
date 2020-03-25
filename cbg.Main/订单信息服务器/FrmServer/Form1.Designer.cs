@@ -35,6 +35,7 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.TabMain = new System.Windows.Forms.TabControl();
 			this.TabMain_VpsManager = new System.Windows.Forms.TabPage();
+			this.IpShowRawMessage = new System.Windows.Forms.CheckBox();
 			this.CmdSubmitBill = new System.Windows.Forms.Button();
 			this.OpLog = new System.Windows.Forms.ListView();
 			this.OpLog_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -72,9 +73,14 @@
 			this.TabMain_Setting = new System.Windows.Forms.TabPage();
 			this.IpCheckBeforePay = new System.Windows.Forms.CheckBox();
 			this.label4 = new System.Windows.Forms.Label();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label8 = new System.Windows.Forms.Label();
+			this.label10 = new System.Windows.Forms.Label();
+			this.label15 = new System.Windows.Forms.Label();
+			this.label9 = new System.Windows.Forms.Label();
+			this.IpMinHandlePrice = new System.Windows.Forms.TextBox();
+			this.label14 = new System.Windows.Forms.Label();
 			this.IpAssumePrice_Rate = new System.Windows.Forms.TextBox();
+			this.label8 = new System.Windows.Forms.Label();
+			this.IpScriptPayPsw = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.IpPerVPShdl = new System.Windows.Forms.TextBox();
@@ -91,9 +97,7 @@
 			this.Verify = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.ServerHdl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Psw = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.IpMinHandlePrice = new System.Windows.Forms.TextBox();
-			this.label9 = new System.Windows.Forms.Label();
-			this.label10 = new System.Windows.Forms.Label();
+			this.OpLog_From = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.TabMain.SuspendLayout();
 			this.TabMain_VpsManager.SuspendLayout();
 			this.TabMain_Setting.SuspendLayout();
@@ -106,7 +110,7 @@
 			this.TabMain.Controls.Add(this.TabMain_Setting);
 			this.TabMain.Controls.Add(this.TabMain_Pay);
 			this.TabMain.Location = new System.Drawing.Point(4, -2);
-			this.TabMain.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.TabMain.Margin = new System.Windows.Forms.Padding(6);
 			this.TabMain.Name = "TabMain";
 			this.TabMain.SelectedIndex = 0;
 			this.TabMain.Size = new System.Drawing.Size(1834, 1982);
@@ -114,6 +118,7 @@
 			// 
 			// TabMain_VpsManager
 			// 
+			this.TabMain_VpsManager.Controls.Add(this.IpShowRawMessage);
 			this.TabMain_VpsManager.Controls.Add(this.CmdSubmitBill);
 			this.TabMain_VpsManager.Controls.Add(this.OpLog);
 			this.TabMain_VpsManager.Controls.Add(this.LstBrowserClient);
@@ -128,33 +133,45 @@
 			this.TabMain_VpsManager.Controls.Add(this.OpConnectionCount);
 			this.TabMain_VpsManager.Controls.Add(this.LstConnection);
 			this.TabMain_VpsManager.Location = new System.Drawing.Point(8, 39);
-			this.TabMain_VpsManager.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.TabMain_VpsManager.Margin = new System.Windows.Forms.Padding(6);
 			this.TabMain_VpsManager.Name = "TabMain_VpsManager";
-			this.TabMain_VpsManager.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.TabMain_VpsManager.Padding = new System.Windows.Forms.Padding(6);
 			this.TabMain_VpsManager.Size = new System.Drawing.Size(1818, 1935);
 			this.TabMain_VpsManager.TabIndex = 0;
 			this.TabMain_VpsManager.Text = "终端管理";
 			this.TabMain_VpsManager.UseVisualStyleBackColor = true;
 			// 
+			// IpShowRawMessage
+			// 
+			this.IpShowRawMessage.AutoSize = true;
+			this.IpShowRawMessage.Location = new System.Drawing.Point(1648, 7);
+			this.IpShowRawMessage.Name = "IpShowRawMessage";
+			this.IpShowRawMessage.Size = new System.Drawing.Size(138, 28);
+			this.IpShowRawMessage.TabIndex = 43;
+			this.IpShowRawMessage.Text = "显示底层";
+			this.IpShowRawMessage.UseVisualStyleBackColor = true;
+			// 
 			// CmdSubmitBill
 			// 
 			this.CmdSubmitBill.Location = new System.Drawing.Point(862, 1380);
-			this.CmdSubmitBill.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.CmdSubmitBill.Margin = new System.Windows.Forms.Padding(6);
 			this.CmdSubmitBill.Name = "CmdSubmitBill";
 			this.CmdSubmitBill.Size = new System.Drawing.Size(98, 68);
 			this.CmdSubmitBill.TabIndex = 42;
 			this.CmdSubmitBill.Text = "测试\r\n下单";
 			this.CmdSubmitBill.UseVisualStyleBackColor = true;
+			this.CmdSubmitBill.Visible = false;
 			this.CmdSubmitBill.Click += new System.EventHandler(this.CmdSubmitBill_Click);
 			// 
 			// OpLog
 			// 
 			this.OpLog.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.OpLog_Time,
+            this.OpLog_From,
             this.OpLog_Content});
 			this.OpLog.HideSelection = false;
 			this.OpLog.Location = new System.Drawing.Point(1080, 52);
-			this.OpLog.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.OpLog.Margin = new System.Windows.Forms.Padding(6);
 			this.OpLog.Name = "OpLog";
 			this.OpLog.Size = new System.Drawing.Size(718, 712);
 			this.OpLog.TabIndex = 41;
@@ -180,7 +197,7 @@
 			this.LstBrowserClient.HideSelection = false;
 			this.LstBrowserClient.LabelEdit = true;
 			this.LstBrowserClient.Location = new System.Drawing.Point(1078, 780);
-			this.LstBrowserClient.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.LstBrowserClient.Margin = new System.Windows.Forms.Padding(6);
 			this.LstBrowserClient.Name = "LstBrowserClient";
 			this.LstBrowserClient.Size = new System.Drawing.Size(722, 664);
 			this.LstBrowserClient.TabIndex = 40;
@@ -199,7 +216,7 @@
 			// CmdPayBill
 			// 
 			this.CmdPayBill.Location = new System.Drawing.Point(972, 1380);
-			this.CmdPayBill.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.CmdPayBill.Margin = new System.Windows.Forms.Padding(6);
 			this.CmdPayBill.Name = "CmdPayBill";
 			this.CmdPayBill.Size = new System.Drawing.Size(94, 68);
 			this.CmdPayBill.TabIndex = 39;
@@ -210,7 +227,7 @@
 			// CmdPauseTaskAllocate
 			// 
 			this.CmdPauseTaskAllocate.Location = new System.Drawing.Point(524, 1380);
-			this.CmdPauseTaskAllocate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.CmdPauseTaskAllocate.Margin = new System.Windows.Forms.Padding(6);
 			this.CmdPauseTaskAllocate.Name = "CmdPauseTaskAllocate";
 			this.CmdPauseTaskAllocate.Size = new System.Drawing.Size(176, 68);
 			this.CmdPauseTaskAllocate.TabIndex = 38;
@@ -221,7 +238,7 @@
 			// CmdRedial
 			// 
 			this.CmdRedial.Location = new System.Drawing.Point(336, 1380);
-			this.CmdRedial.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.CmdRedial.Margin = new System.Windows.Forms.Padding(6);
 			this.CmdRedial.Name = "CmdRedial";
 			this.CmdRedial.Size = new System.Drawing.Size(176, 68);
 			this.CmdRedial.TabIndex = 37;
@@ -245,7 +262,7 @@
 			this.LstGoodShow.FullRowSelect = true;
 			this.LstGoodShow.HideSelection = false;
 			this.LstGoodShow.Location = new System.Drawing.Point(8, 1460);
-			this.LstGoodShow.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.LstGoodShow.Margin = new System.Windows.Forms.Padding(6);
 			this.LstGoodShow.Name = "LstGoodShow";
 			this.LstGoodShow.Size = new System.Drawing.Size(1798, 444);
 			this.LstGoodShow.TabIndex = 36;
@@ -310,7 +327,7 @@
 			// IpSender
 			// 
 			this.IpSender.Location = new System.Drawing.Point(8, 1326);
-			this.IpSender.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.IpSender.Margin = new System.Windows.Forms.Padding(6);
 			this.IpSender.Name = "IpSender";
 			this.IpSender.Size = new System.Drawing.Size(1054, 35);
 			this.IpSender.TabIndex = 25;
@@ -318,7 +335,7 @@
 			// CmdDisconnect
 			// 
 			this.CmdDisconnect.Location = new System.Drawing.Point(158, 1380);
-			this.CmdDisconnect.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.CmdDisconnect.Margin = new System.Windows.Forms.Padding(6);
 			this.CmdDisconnect.Name = "CmdDisconnect";
 			this.CmdDisconnect.Size = new System.Drawing.Size(166, 68);
 			this.CmdDisconnect.TabIndex = 24;
@@ -329,7 +346,7 @@
 			// CmdServerOn
 			// 
 			this.CmdServerOn.Location = new System.Drawing.Point(8, 1380);
-			this.CmdServerOn.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.CmdServerOn.Margin = new System.Windows.Forms.Padding(6);
 			this.CmdServerOn.Name = "CmdServerOn";
 			this.CmdServerOn.Size = new System.Drawing.Size(138, 68);
 			this.CmdServerOn.TabIndex = 23;
@@ -361,7 +378,7 @@
 			this.LstConnection.HideSelection = false;
 			this.LstConnection.LabelEdit = true;
 			this.LstConnection.Location = new System.Drawing.Point(8, 52);
-			this.LstConnection.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.LstConnection.Margin = new System.Windows.Forms.Padding(6);
 			this.LstConnection.Name = "LstConnection";
 			this.LstConnection.Size = new System.Drawing.Size(1054, 1258);
 			this.LstConnection.TabIndex = 19;
@@ -408,11 +425,13 @@
 			this.TabMain_Setting.Controls.Add(this.IpCheckBeforePay);
 			this.TabMain_Setting.Controls.Add(this.label4);
 			this.TabMain_Setting.Controls.Add(this.label10);
-			this.TabMain_Setting.Controls.Add(this.label7);
+			this.TabMain_Setting.Controls.Add(this.label15);
 			this.TabMain_Setting.Controls.Add(this.label9);
 			this.TabMain_Setting.Controls.Add(this.IpMinHandlePrice);
-			this.TabMain_Setting.Controls.Add(this.label8);
+			this.TabMain_Setting.Controls.Add(this.label14);
 			this.TabMain_Setting.Controls.Add(this.IpAssumePrice_Rate);
+			this.TabMain_Setting.Controls.Add(this.label8);
+			this.TabMain_Setting.Controls.Add(this.IpScriptPayPsw);
 			this.TabMain_Setting.Controls.Add(this.label5);
 			this.TabMain_Setting.Controls.Add(this.label6);
 			this.TabMain_Setting.Controls.Add(this.IpPerVPShdl);
@@ -420,9 +439,9 @@
 			this.TabMain_Setting.Controls.Add(this.label1);
 			this.TabMain_Setting.Controls.Add(this.IpTaskInterval);
 			this.TabMain_Setting.Location = new System.Drawing.Point(8, 39);
-			this.TabMain_Setting.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.TabMain_Setting.Margin = new System.Windows.Forms.Padding(6);
 			this.TabMain_Setting.Name = "TabMain_Setting";
-			this.TabMain_Setting.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.TabMain_Setting.Padding = new System.Windows.Forms.Padding(6);
 			this.TabMain_Setting.Size = new System.Drawing.Size(1818, 1935);
 			this.TabMain_Setting.TabIndex = 1;
 			this.TabMain_Setting.Text = "设置";
@@ -432,7 +451,7 @@
 			// 
 			this.IpCheckBeforePay.AutoSize = true;
 			this.IpCheckBeforePay.Location = new System.Drawing.Point(130, 228);
-			this.IpCheckBeforePay.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.IpCheckBeforePay.Margin = new System.Windows.Forms.Padding(6);
 			this.IpCheckBeforePay.Name = "IpCheckBeforePay";
 			this.IpCheckBeforePay.Size = new System.Drawing.Size(28, 27);
 			this.IpCheckBeforePay.TabIndex = 49;
@@ -448,35 +467,85 @@
 			this.label4.TabIndex = 48;
 			this.label4.Text = "付款确认";
 			// 
-			// label7
+			// label10
 			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(358, 191);
-			this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(22, 24);
-			this.label7.TabIndex = 47;
-			this.label7.Text = "%";
+			this.label10.AutoSize = true;
+			this.label10.Location = new System.Drawing.Point(358, 143);
+			this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+			this.label10.Name = "label10";
+			this.label10.Size = new System.Drawing.Size(214, 24);
+			this.label10.TabIndex = 47;
+			this.label10.Text = "%达到后打开浏览器";
 			// 
-			// label8
+			// label15
 			// 
-			this.label8.AutoSize = true;
-			this.label8.Location = new System.Drawing.Point(12, 191);
-			this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(106, 24);
-			this.label8.TabIndex = 46;
-			this.label8.Text = "估价比率";
+			this.label15.AutoSize = true;
+			this.label15.Location = new System.Drawing.Point(358, 194);
+			this.label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+			this.label15.Name = "label15";
+			this.label15.Size = new System.Drawing.Size(22, 24);
+			this.label15.TabIndex = 47;
+			this.label15.Text = "%";
+			// 
+			// label9
+			// 
+			this.label9.AutoSize = true;
+			this.label9.Location = new System.Drawing.Point(12, 143);
+			this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(106, 24);
+			this.label9.TabIndex = 46;
+			this.label9.Text = "最低关注";
+			// 
+			// IpMinHandlePrice
+			// 
+			this.IpMinHandlePrice.Location = new System.Drawing.Point(130, 125);
+			this.IpMinHandlePrice.Margin = new System.Windows.Forms.Padding(6);
+			this.IpMinHandlePrice.Name = "IpMinHandlePrice";
+			this.IpMinHandlePrice.Size = new System.Drawing.Size(212, 35);
+			this.IpMinHandlePrice.TabIndex = 45;
+			this.IpMinHandlePrice.Tag = "RecordReg";
+			this.IpMinHandlePrice.Text = "100";
+			// 
+			// label14
+			// 
+			this.label14.AutoSize = true;
+			this.label14.Location = new System.Drawing.Point(12, 194);
+			this.label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(106, 24);
+			this.label14.TabIndex = 46;
+			this.label14.Text = "估价比率";
 			// 
 			// IpAssumePrice_Rate
 			// 
-			this.IpAssumePrice_Rate.Location = new System.Drawing.Point(130, 173);
-			this.IpAssumePrice_Rate.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.IpAssumePrice_Rate.Location = new System.Drawing.Point(130, 176);
+			this.IpAssumePrice_Rate.Margin = new System.Windows.Forms.Padding(6);
 			this.IpAssumePrice_Rate.Name = "IpAssumePrice_Rate";
 			this.IpAssumePrice_Rate.Size = new System.Drawing.Size(212, 35);
 			this.IpAssumePrice_Rate.TabIndex = 45;
 			this.IpAssumePrice_Rate.Tag = "RecordReg";
 			this.IpAssumePrice_Rate.Text = "100";
+			// 
+			// label8
+			// 
+			this.label8.AutoSize = true;
+			this.label8.Location = new System.Drawing.Point(12, 288);
+			this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(106, 24);
+			this.label8.TabIndex = 46;
+			this.label8.Text = "付款密码";
+			// 
+			// IpScriptPayPsw
+			// 
+			this.IpScriptPayPsw.Location = new System.Drawing.Point(130, 270);
+			this.IpScriptPayPsw.Margin = new System.Windows.Forms.Padding(6);
+			this.IpScriptPayPsw.Name = "IpScriptPayPsw";
+			this.IpScriptPayPsw.Size = new System.Drawing.Size(212, 35);
+			this.IpScriptPayPsw.TabIndex = 45;
+			this.IpScriptPayPsw.Tag = "RecordReg";
+			this.IpScriptPayPsw.Text = "123456";
 			// 
 			// label5
 			// 
@@ -501,7 +570,7 @@
 			// IpPerVPShdl
 			// 
 			this.IpPerVPShdl.Location = new System.Drawing.Point(130, 78);
-			this.IpPerVPShdl.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.IpPerVPShdl.Margin = new System.Windows.Forms.Padding(6);
 			this.IpPerVPShdl.Name = "IpPerVPShdl";
 			this.IpPerVPShdl.Size = new System.Drawing.Size(212, 35);
 			this.IpPerVPShdl.TabIndex = 42;
@@ -531,7 +600,7 @@
 			// IpTaskInterval
 			// 
 			this.IpTaskInterval.Location = new System.Drawing.Point(130, 30);
-			this.IpTaskInterval.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.IpTaskInterval.Margin = new System.Windows.Forms.Padding(6);
 			this.IpTaskInterval.Name = "IpTaskInterval";
 			this.IpTaskInterval.Size = new System.Drawing.Size(212, 35);
 			this.IpTaskInterval.TabIndex = 36;
@@ -546,7 +615,7 @@
 			this.TabMain_Pay.Controls.Add(this.label2);
 			this.TabMain_Pay.Controls.Add(this.LstPayClient);
 			this.TabMain_Pay.Location = new System.Drawing.Point(8, 39);
-			this.TabMain_Pay.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.TabMain_Pay.Margin = new System.Windows.Forms.Padding(6);
 			this.TabMain_Pay.Name = "TabMain_Pay";
 			this.TabMain_Pay.Size = new System.Drawing.Size(1818, 1935);
 			this.TabMain_Pay.TabIndex = 2;
@@ -566,7 +635,7 @@
 			// CmdPay_EditVerify
 			// 
 			this.CmdPay_EditVerify.Location = new System.Drawing.Point(236, 1580);
-			this.CmdPay_EditVerify.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.CmdPay_EditVerify.Margin = new System.Windows.Forms.Padding(6);
 			this.CmdPay_EditVerify.Name = "CmdPay_EditVerify";
 			this.CmdPay_EditVerify.Size = new System.Drawing.Size(196, 66);
 			this.CmdPay_EditVerify.TabIndex = 3;
@@ -577,7 +646,7 @@
 			// CmdPay_NewVerify
 			// 
 			this.CmdPay_NewVerify.Location = new System.Drawing.Point(28, 1580);
-			this.CmdPay_NewVerify.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.CmdPay_NewVerify.Margin = new System.Windows.Forms.Padding(6);
 			this.CmdPay_NewVerify.Name = "CmdPay_NewVerify";
 			this.CmdPay_NewVerify.Size = new System.Drawing.Size(196, 66);
 			this.CmdPay_NewVerify.TabIndex = 2;
@@ -605,7 +674,7 @@
 			this.LstPayClient.FullRowSelect = true;
 			this.LstPayClient.HideSelection = false;
 			this.LstPayClient.Location = new System.Drawing.Point(26, 50);
-			this.LstPayClient.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.LstPayClient.Margin = new System.Windows.Forms.Padding(6);
 			this.LstPayClient.Name = "LstPayClient";
 			this.LstPayClient.Size = new System.Drawing.Size(1376, 1504);
 			this.LstPayClient.TabIndex = 0;
@@ -632,35 +701,9 @@
 			this.Psw.Text = "密码";
 			this.Psw.Width = 150;
 			// 
-			// IpMinHandlePrice
+			// OpLog_From
 			// 
-			this.IpMinHandlePrice.Location = new System.Drawing.Point(130, 125);
-			this.IpMinHandlePrice.Margin = new System.Windows.Forms.Padding(6);
-			this.IpMinHandlePrice.Name = "IpMinHandlePrice";
-			this.IpMinHandlePrice.Size = new System.Drawing.Size(212, 35);
-			this.IpMinHandlePrice.TabIndex = 45;
-			this.IpMinHandlePrice.Tag = "RecordReg";
-			this.IpMinHandlePrice.Text = "100";
-			// 
-			// label9
-			// 
-			this.label9.AutoSize = true;
-			this.label9.Location = new System.Drawing.Point(12, 143);
-			this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(106, 24);
-			this.label9.TabIndex = 46;
-			this.label9.Text = "最低关注";
-			// 
-			// label10
-			// 
-			this.label10.AutoSize = true;
-			this.label10.Location = new System.Drawing.Point(358, 143);
-			this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(214, 24);
-			this.label10.TabIndex = 47;
-			this.label10.Text = "%达到后打开浏览器";
+			this.OpLog_From.Text = "来源";
 			// 
 			// Form1
 			// 
@@ -669,7 +712,7 @@
 			this.ClientSize = new System.Drawing.Size(1840, 1959);
 			this.Controls.Add(this.TabMain);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+			this.Margin = new System.Windows.Forms.Padding(6);
 			this.Name = "Form1";
 			this.Text = "服务器";
 			this.TabMain.ResumeLayout(false);
@@ -717,9 +760,8 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TextBox IpTaskInterval;
 		private System.Windows.Forms.Button CmdRedial;
-		private System.Windows.Forms.Label label7;
 		private System.Windows.Forms.Label label8;
-		private System.Windows.Forms.TextBox IpAssumePrice_Rate;
+		private System.Windows.Forms.TextBox IpScriptPayPsw;
 		private System.Windows.Forms.Button CmdPauseTaskAllocate;
 		private System.Windows.Forms.ColumnHeader LstConnection_version;
 		private System.Windows.Forms.TabPage TabMain_Pay;
@@ -746,6 +788,11 @@
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.TextBox IpMinHandlePrice;
+		private System.Windows.Forms.Label label15;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.TextBox IpAssumePrice_Rate;
+		private System.Windows.Forms.CheckBox IpShowRawMessage;
+		private System.Windows.Forms.ColumnHeader OpLog_From;
 	}
 }
 

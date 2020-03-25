@@ -80,10 +80,14 @@ namespace 订单信息服务器
 
 		private void Server_OnRawMessage(object sender, ClientMessageEventArgs e)
 		{
-			this.Invoke((EventHandler)delegate
+			if (IpShowRawMessage.Checked)
 			{
-				AppendLog($"raw:{e.RawString}");
-			});
+				this.Invoke((EventHandler)delegate
+				{
+					var connection = sender as TcpConnection;
+					AppendLog(connection.AliasName, $"{e.RawString}");
+				});
+			}
 		}
 
 		private void Server_OnHttpMessage(object sender, ClientHttpMessageEventArgs e)
@@ -223,7 +227,8 @@ namespace 订单信息服务器
 					{
 						this.Invoke((EventHandler)delegate
 						{
-							AppendLog(info);
+							TcpConnection connection = sender as TcpConnection;
+							AppendLog(connection?.AliasName, info);
 						});
 					}
 					catch
@@ -239,27 +244,20 @@ namespace 订单信息服务器
 			var x = sender as TcpConnection;
 			this?.Invoke((EventHandler)delegate
 			{
-				AppendLog("已断开:" + x.Ip);
-				lock (_ConnectVpsClientLstViewItem)
-				{
-					if (!_ConnectVpsClientLstViewItem.ContainsKey(x.Ip)) return;
-					LstConnection.Items.Remove(_ConnectVpsClientLstViewItem[x.Ip]);
-					_ConnectVpsClientLstViewItem.Remove(x.Ip);
-				}
-
-				_dicVpsWorkBeginTime.Remove(x.Ip);
-				_clientPayUser.Remove(x.Ip);
-				AvailableVps[x.Ip] = false;
-				if (allocVps.ContainsKey(x.Ip))
-				{
-					var vps = allocVps[x.Ip];
-					foreach (var server in vps.HdlServer)
-					{
-						serverInfoList[server].NowNum++;
-					}
-					allocVps.Remove(x.Ip);
-				}
+				AppendLog($"{x.Ip}:{x.AliasName}", "已断开");
+				if (!_ConnectVpsClientLstViewItem.ContainsKey(x.Ip)) return;
+				LstConnection.Items.Remove(_ConnectVpsClientLstViewItem[x.Ip]);
+				_ConnectVpsClientLstViewItem.Remove(x.Ip);
+				AppendLog($"{x.Ip}:{x.AliasName}", "断开完成");
 			});
+
+			_dicVpsWorkBeginTime.Remove(x.Ip);
+			_clientPayUser.Remove(x.Ip);
+			AvailableVps[x.Ip] = false;
+			if (allocVps.ContainsKey(x.Ip))
+			{
+				allocVps.Remove(x.Ip);
+			}
 		}
 
 		private void Server_OnTcpConnect(object sender, ClientConnectEventArgs e)
@@ -269,7 +267,7 @@ namespace 订单信息服务器
 				var x = sender as TcpConnection;
 				this.Invoke((EventHandler)delegate
 				{
-					AppendLog("已连接:" + x.Ip);
+					AppendLog(x.Ip, "已连接");
 					var info = new string[7];
 					info[1] = x.IsLocal ? "主机" : "终端";
 					info[2] = x.Ip;
@@ -279,8 +277,7 @@ namespace 订单信息服务器
 					info[5] = "暂无";//任务
 					info[6] = "未知";//版本
 					var item = new ListViewItem(info);
-					lock (_ConnectVpsClientLstViewItem)
-						_ConnectVpsClientLstViewItem.Add(x.Ip, item);
+					_ConnectVpsClientLstViewItem.Add(x.Ip, item);
 					_dicVpsWorkBeginTime.Add(x.Ip, new TimeTicker());
 					LstConnection.Items.Add(item);
 					_clientPayUser.Add(x.Ip, "...");

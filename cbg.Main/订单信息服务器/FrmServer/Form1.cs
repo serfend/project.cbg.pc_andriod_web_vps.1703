@@ -79,25 +79,24 @@ namespace 订单信息服务器
 
 		private void CheckIfUserEditName(object sender, LabelEditEventArgs e)
 		{
+			var ip = LstConnection.Items[e.Item].SubItems[2].Text;
 			try
 			{
-				var ip = LstConnection.Items[e.Item].SubItems[2].Text;
 				var target = server[ip];
-
 				var clientName = e.Label;
 				regSettingVps.In(target.AliasName).SetInfo("clientName", clientName);
 				target.Send(new CmdSetClientNameMessage(clientName));
 			}
 			catch (Exception ex)
 			{
-				AppendLog("修改终端名称失败:" + ex.Message);
+				AppendLog(ip, $"修改终端名称失败:{ex.Message}");
 			}
 		}
 
-		public void AppendLog(string info)
+		public void AppendLog(string from, string info)
 		{
-			var data = new string[2] {
-				DateTime.Now.ToString("hh:mm:ss"),info
+			var data = new string[] {
+				DateTime.Now.ToString("hh:mm:ss"),from,info
 			};
 			OpLog.Items.Insert(0, new ListViewItem(data));
 			if (OpLog.Items.Count > 50)
@@ -212,6 +211,7 @@ namespace 订单信息服务器
 				return;
 			}
 			var info = GetEquipBaseInfoFromSelect(LstGoodShow.SelectedItems[0]);
+
 			PayCurrentBill(info);
 			//修改为直接广播
 			//var targetUser = InputBox.ShowInputBox("输入付款浏览器名称", "输入付款浏览器名称", "");
