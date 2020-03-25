@@ -243,7 +243,7 @@ namespace 订单信息服务器
 					//AppendLog(ordersn + "已出现过此订单," + serverName);
 					return;
 				}
-				AppendLog(sender.AliasName, priceInfo);
+				//AppendLog(sender.AliasName, priceInfo);
 				var price = priceInfo.Split('/');
 				double priceNum = 0, priceNumAssume = 0;
 				if (price.Length == 2)
@@ -251,6 +251,7 @@ namespace 订单信息服务器
 					priceNum = Convert.ToDouble(price[0]);
 					priceNumAssume = Convert.ToDouble(price[1]);
 				}
+				// 浏览器打开的最小比例
 				var priceMinRequireRate = Convert.ToDouble(IpMinHandlePrice.Text) / 100;
 				var goodItem = new EquipBaseInfo()
 				{
@@ -270,9 +271,13 @@ namespace 订单信息服务器
 					AppendLog(sender.AliasName, $"{serverName} {goodName}:标价过高{priceNum}/最高估价{priceNumAssumeMinRequire}");
 					return;
 				}
+				else if (priceNum > priceNumAssume)
+				{
+					AppendLog(sender.AliasName, $"{serverName} {goodName}:标价1级触发{priceNum}/关注估价{priceNumAssumeMinRequire}");
+				}
 				else
 				{
-					AppendLog(sender.AliasName, $"新的订单:{priceNum}/{priceNumAssumeMinRequire}@ {BuyUrl}");
+					AppendLog(sender.AliasName, $"标价合适:{priceNum}/{priceNumAssume}@ {BuyUrl}");
 					PayCurrentBill(goodItem);
 					var earnNum = priceNumAssume - priceNum;
 					if (earnNum / priceNum < 5)
