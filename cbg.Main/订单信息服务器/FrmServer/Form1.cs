@@ -95,6 +95,10 @@ namespace 订单信息服务器
 
 		public void AppendLog(string from, string info)
 		{
+			if (IpFilterSrc.Text != "" && from.IndexOf(IpFilterSrc.Text) < 0)
+			{
+				return;
+			}
 			var data = new string[] {
 				DateTime.Now.ToString("hh:mm:ss"),from,info
 			};

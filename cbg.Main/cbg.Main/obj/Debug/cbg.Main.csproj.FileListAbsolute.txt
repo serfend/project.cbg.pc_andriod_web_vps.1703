@@ -1,8 +1,6 @@
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\cbg.Main.exe.config
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\cbg.Main.exe
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\cbg.Main.pdb
-C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\cbg.Main.exe.CodeAnalysisLog.xml
-C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\cbg.Main.exe.lastcodeanalysissucceeded
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\Interop.MSScriptControl.dll
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\Newtonsoft.Json.dll
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\SfTcp.dll
@@ -18,3 +16,5 @@ C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cb
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.csproj.CopyComplete
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.exe
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.pdb
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\cbg.Main.exe.CodeAnalysisLog.xml
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\cbg.Main.exe.lastcodeanalysissucceeded

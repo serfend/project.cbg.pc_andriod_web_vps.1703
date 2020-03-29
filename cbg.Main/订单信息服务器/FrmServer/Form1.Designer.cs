@@ -39,6 +39,7 @@
 			this.CmdSubmitBill = new System.Windows.Forms.Button();
 			this.OpLog = new System.Windows.Forms.ListView();
 			this.OpLog_Time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.OpLog_From = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.OpLog_Content = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.LstBrowserClient = new System.Windows.Forms.ListView();
 			this.BrowserClient_Name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -97,7 +98,7 @@
 			this.Verify = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.ServerHdl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.Psw = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.OpLog_From = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.IpFilterSrc = new System.Windows.Forms.TextBox();
 			this.TabMain.SuspendLayout();
 			this.TabMain_VpsManager.SuspendLayout();
 			this.TabMain_Setting.SuspendLayout();
@@ -118,6 +119,7 @@
 			// 
 			// TabMain_VpsManager
 			// 
+			this.TabMain_VpsManager.Controls.Add(this.IpFilterSrc);
 			this.TabMain_VpsManager.Controls.Add(this.IpShowRawMessage);
 			this.TabMain_VpsManager.Controls.Add(this.CmdSubmitBill);
 			this.TabMain_VpsManager.Controls.Add(this.OpLog);
@@ -182,6 +184,10 @@
 			// 
 			this.OpLog_Time.Text = "时间";
 			this.OpLog_Time.Width = 80;
+			// 
+			// OpLog_From
+			// 
+			this.OpLog_From.Text = "来源";
 			// 
 			// OpLog_Content
 			// 
@@ -701,9 +707,12 @@
 			this.Psw.Text = "密码";
 			this.Psw.Width = 150;
 			// 
-			// OpLog_From
+			// IpFilterSrc
 			// 
-			this.OpLog_From.Text = "来源";
+			this.IpFilterSrc.Location = new System.Drawing.Point(1179, 8);
+			this.IpFilterSrc.Name = "IpFilterSrc";
+			this.IpFilterSrc.Size = new System.Drawing.Size(263, 35);
+			this.IpFilterSrc.TabIndex = 44;
 			// 
 			// Form1
 			// 
@@ -793,6 +802,7 @@
 		private System.Windows.Forms.TextBox IpAssumePrice_Rate;
 		private System.Windows.Forms.CheckBox IpShowRawMessage;
 		private System.Windows.Forms.ColumnHeader OpLog_From;
+		private System.Windows.Forms.TextBox IpFilterSrc;
 	}
 }
 

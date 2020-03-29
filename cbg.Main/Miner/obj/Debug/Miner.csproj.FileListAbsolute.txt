@@ -45,8 +45,6 @@ C:\Users\huawei\Documents\GitHub\大话西游藏宝阁\Project.1703.DHXY-cbg\多
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.exe.config
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.exe
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.pdb
-C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.exe.CodeAnalysisLog.xml
-C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.exe.lastcodeanalysissucceeded
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Interop.MSScriptControl.dll
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Newtonsoft.Json.dll
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\SfBaseTcp.dll
@@ -62,3 +60,5 @@ C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Mi
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\obj\Debug\Miner.csproj.CopyComplete
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\obj\Debug\Miner.exe
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\obj\Debug\Miner.pdb
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.exe.CodeAnalysisLog.xml
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.exe.lastcodeanalysissucceeded

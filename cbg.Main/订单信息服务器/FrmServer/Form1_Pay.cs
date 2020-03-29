@@ -248,8 +248,15 @@ namespace 订单信息服务器
 				double priceNum = 0, priceNumAssume = 0;
 				if (price.Length == 2)
 				{
-					priceNum = Convert.ToDouble(price[0]);
-					priceNumAssume = Convert.ToDouble(price[1]);
+					try
+					{
+						priceNum = Convert.ToDouble(price[0]);
+						priceNumAssume = Convert.ToDouble(price[1]);
+					}
+					catch (Exception ex)
+					{
+						AppendLog(sender.AliasName, $"{priceInfo}：{ex.Message}");
+					}
 				}
 				// 浏览器打开的最小比例
 				var priceMinRequireRate = Convert.ToDouble(IpMinHandlePrice.Text) / 100;

@@ -430,6 +430,7 @@ namespace 订单信息服务器
 						s.ID = InnerInfo["DeviceId"]?.ToString();
 						var clientName = regSettingVps.In(s.ID).GetInfo("Name", targetItem.SubItems[0].Text);
 						targetItem.SubItems[0].Text = clientName;
+						s.AliasName = clientName;
 						s.Send(new CmdSetClientNameMessage(clientName));//用于确认当前名称并初始化
 						break;
 					}
