@@ -43,3 +43,4 @@ C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Eq
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csproj.CopyComplete
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.exe
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.pdb
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csprojAssemblyReference.cache

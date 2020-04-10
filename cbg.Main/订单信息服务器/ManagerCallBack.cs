@@ -136,7 +136,16 @@ namespace Server
 			{
 				TargetItem.SubItems[3].Text = TargetItem.SubItems[3].Text.Replace("心跳", "");
 			}
-			S.Send(new MsgHeartBeatMessage());
+
+			if (TargetItem.SubItems[4].Tag == null) TargetItem.SubItems[4].Tag = 0;
+			var lastStamp = Convert.ToInt64(TargetItem.SubItems[4].Tag);
+			var thisStamp = Convert.ToInt64(e.Message["Stamp"]?.ToString() ?? "0");
+			TargetItem.SubItems[4].Tag = thisStamp;
+			if ((e.Message["NeedReply"]?.ToString()?.ToLower() ?? "false") == "true")
+			{
+				TargetItem.SubItems[4].Text = (thisStamp - lastStamp).ToString();
+				S.Send(new MsgHeartBeatMessage());
+			}
 		}
 
 		private static void ServerCallBack_RpClientConnect(ClientMessageEventArgs e)

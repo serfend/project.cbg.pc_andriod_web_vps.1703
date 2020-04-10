@@ -10,20 +10,19 @@ using 订单信息服务器.WebSocketServer;
 
 namespace 订单信息服务器
 {
-	
-	static class Program
+	internal static class Program
 	{
 		/// <summary>
 		/// 应用程序的主入口点。
 		/// </summary>
 		[STAThread]
-		static void Main()
+		private static void Main()
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			try
 			{
-				AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException; ;
+				AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 				Application.ThreadException += new System.Threading.ThreadExceptionEventHandler(Application_ThreadException);
 				Application.Run(new Form1());
 			}
@@ -43,6 +42,7 @@ namespace 订单信息服务器
 			MessageBox.Show(e.ExceptionObject.ToString(), "系统错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
 	}
+
 	public class RandomInfo
 	{
 		public string name;
