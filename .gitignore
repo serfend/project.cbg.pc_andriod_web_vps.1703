@@ -7,3 +7,7 @@
 *.ide
 *.config
 *.cache
+cbg.Main/.vs/cbg.Main/v16/.suo
+cbg.Main/.vs/cbg.Main/v16/Server/sqlite3/storage.ide
+cbg.Main/订单信息服务器/bin/Debug/订单信息服务器.exe.lastcodeanalysissucceeded
+cbg.Main/订单信息服务器/obj/Debug/订单信息服务器.csproj.FileListAbsolute.txt

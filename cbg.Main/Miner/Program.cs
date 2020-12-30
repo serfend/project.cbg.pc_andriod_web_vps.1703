@@ -272,10 +272,10 @@ namespace Miner
 			//Program.Tcp?.Dispose();
 			var t = new Task(() =>
 			{
-				Thread.Sleep(1000);
+				Task.Delay(1000);
 				var p = new CmdRasdial();
 				p.DisRasdial();
-				Thread.Sleep(1000);
+				Task.Delay(1000);
 				p.Rasdial();
 				Program.vpsStatus = VpsStatus.WaitConnect;
 			});

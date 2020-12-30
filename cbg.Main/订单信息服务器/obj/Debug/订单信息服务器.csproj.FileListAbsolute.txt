@@ -88,5 +88,4 @@ C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\�
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.csproj.CopyComplete
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.exe
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.pdb
-C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\bin\Debug\订单信息服务器.exe.CodeAnalysisLog.xml
-C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\bin\Debug\订单信息服务器.exe.lastcodeanalysissucceeded
+C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.csproj.CoreCompileInputs.cache

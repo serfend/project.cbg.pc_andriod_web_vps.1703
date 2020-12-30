@@ -168,7 +168,14 @@ namespace 订单信息服务器
 				PriceRequire = price[0]
 			};
 		}
-
+		public string parseUrl(string url)
+        {
+			var urls = url.Split(new char[] { '/' });
+			if (urls.Length < 2) return $"{url}?reason=fail generate";
+			var s = urls[urls.Length - 2];
+			var eid = urls[urls.Length - 1];
+			return $"https://xy2.cbg.163.com/equip?s={s}&eid={eid}";
+        }
 		private void LstGoodShow_DoubleClick_1(object sender, EventArgs e)
 		{
 			var target = LstGoodShow.SelectedItems[0];

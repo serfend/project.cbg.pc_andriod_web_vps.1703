@@ -143,8 +143,11 @@ namespace Server
 			TargetItem.SubItems[4].Tag = thisStamp;
 			if ((e.Message["NeedReply"]?.ToString()?.ToLower() ?? "false") == "true")
 			{
-				TargetItem.SubItems[4].Text = (thisStamp - lastStamp).ToString();
 				S.Send(new MsgHeartBeatMessage());
+			}
+			else
+			{
+				TargetItem.SubItems[4].Text = (thisStamp - lastStamp).ToString();
 			}
 		}
 

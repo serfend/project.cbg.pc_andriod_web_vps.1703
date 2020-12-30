@@ -172,14 +172,17 @@ namespace 订单信息服务器
 				userInput.Start();
 				Task.WaitAll(new Task[] { userInput });
 				//item.BillInfo.OrderId = root.FirstBill.orderId;
-				//修改为广播
-				foreach (ListViewItem clientIpView in LstConnection.Items)
+				//修改为广播,并且发三遍
+				for (var i = 0; i < 3; i++)
 				{
-					if (clientIpView.SubItems[1].Text == "phone")
+					foreach (ListViewItem clientIpView in LstConnection.Items)
 					{
-						var clientIp = clientIpView.SubItems[2].Text;
-						var client = server[clientIp];
-						client.Send(item);
+						if (clientIpView.SubItems[1].Text == "phone")
+						{
+							var clientIp = clientIpView.SubItems[2].Text;
+							var client = server[clientIp];
+							client.Send(item);
+						}
 					}
 				}
 				callback?.Invoke($"付款信息已提交至终端");
@@ -227,6 +230,7 @@ namespace 订单信息服务器
 					AppendLog(sender.AliasName, $"无效的订单信息:{InnerInfo}");
 					return;
 				}
+				tmp[8] = parseUrl(tmp[8]);
 				var serverName = tmp[0];
 				var goodName = tmp[1];
 				var priceInfo = tmp[2];
