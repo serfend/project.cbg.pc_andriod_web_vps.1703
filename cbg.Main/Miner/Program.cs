@@ -315,7 +315,7 @@ namespace Miner
 			};
 			fileEngine.Receiver.ReceivingCompletedEvent += (xs, xxx) =>
 			{
-				if (xxx.Result == File_Transfer.ReceiverFiles.ReceiveResult.Completed)
+				if (xxx.Result == File_Transfer.Model.ReceiverFiles.ReceiveResult.Completed)
 				{
 					setting.LogInfo("成功接收文件:" + xxx.Message + "(" + ++fileNowReceive + "/" + fileWaitToUpdate + ")");
 					if (fileNowReceive >= fileWaitToUpdate)
@@ -538,7 +538,7 @@ namespace Miner
 			}
 			catch (Exception ex)
 			{
-				Console.WriteLine($"处理日程失败;{ex.Message}");
+				Console.WriteLine($"处理日程失败;{ex.Message}\n{ex.StackTrace}");
 			}
 			finally
 			{

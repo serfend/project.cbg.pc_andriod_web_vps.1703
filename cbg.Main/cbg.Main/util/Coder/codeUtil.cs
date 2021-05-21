@@ -463,23 +463,6 @@ namespace DotNet4.Utilities
 				}
 			}
 
-			/// <summary>
-			/// 将字符串转换成数字，错误返回0
-			/// </summary>
-			/// <param name="strs">字符串</param>
-			/// <returns></returns>
-			public static int ConvertToInt(string str)
-			{
-				try
-				{
-					return int.Parse(str);
-				}
-				catch (Exception e)
-				{
-					//AppendText("info:-" + e.Message);
-				}
-				return 0;
-			}
 
 			public static string RemoveElementItem(string iniContent, string item, int beginPos = 0)
 			{

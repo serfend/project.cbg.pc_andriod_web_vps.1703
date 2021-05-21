@@ -44,3 +44,17 @@ C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Eq
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.exe
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.pdb
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csprojAssemblyReference.cache
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\EquipSettingLoader.exe.config
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\EquipSettingLoader.exe
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\EquipSettingLoader.pdb
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.Form1.resources
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.Properties.Resources.resources
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csproj.GenerateResource.cache
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csproj.CoreCompileInputs.cache
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csproj.CopyComplete
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.exe
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.pdb
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csprojAssemblyReference.cache

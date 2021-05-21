@@ -134,6 +134,9 @@
     <Compile Include="Setting.cs" />
     <Compile Include="Goods\Summon\Summon.cs" />
     <Compile Include="Goods\Summon\SummonPrice.cs" />
+    <Compile Include="Util\Coder\codeUtil.cs" />
+    <Compile Include="Util\Coder\Image2Binary.cs" />
+    <Compile Include="Util\Coder\JShelp.cs" />
     <Compile Include="Util\NativeMethod.cs" />
     <Compile Include="Util\reg.cs" />
     <Compile Include="Util\SysLog.cs" />

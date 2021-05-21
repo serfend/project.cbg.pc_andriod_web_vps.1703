@@ -186,7 +186,7 @@ namespace DotNet4.Utilities
 					key.SetValue(name, content, GetRegValueKind(regValueKind));
 					result = true;
 				}
-				catch (Exception ex)
+				catch (Exception)
 				{
 					result = false;
 				}

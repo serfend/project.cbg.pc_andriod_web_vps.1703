@@ -43,7 +43,7 @@ namespace 订单信息服务器
 			transferFileEngine = new TransferFileEngine(TcpFiletransfer.TcpTransferEngine.Connections.Connection.EngineModel.AsServer, "any", 8010);
 			transferFileEngine.Connection.ConnectToClient += (x, xx) =>
 			{
-				if (xx.Result == File_Transfer.ReceiverFiles.ReceiveResult.RequestAccepted)
+				if (xx.Result == File_Transfer.Model.ReceiverFiles.ReceiveResult.RequestAccepted)
 				{
 					this.Invoke((EventHandler)delegate { AppendLog("系统", $"文件已提交至发送队列:{waittingFileInfo.Count}"); });
 					foreach (var f in waittingFileInfo)

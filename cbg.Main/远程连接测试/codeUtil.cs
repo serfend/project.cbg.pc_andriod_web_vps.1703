@@ -10,11 +10,12 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+
 namespace DotNet4.Utilities
 {
 	namespace UtilCode
 	{
-		class Base64
+		internal class Base64
 		{
 			public static Image Base64ToImage(string code)
 			{
@@ -22,11 +23,13 @@ namespace DotNet4.Utilities
 				MemoryStream memStream = new MemoryStream(bytes);
 				return new Bitmap(memStream);
 			}
+
 			public static string ImageToBase64(Image img)
 			{
 				byte[] bytes = ImageToByte(img);
 				return Convert.ToBase64String(bytes);
 			}
+
 			public static byte[] ImageToByte(Image img)
 			{
 				BinaryFormatter binFormatter = new BinaryFormatter();
@@ -35,6 +38,7 @@ namespace DotNet4.Utilities
 				return memStream.GetBuffer();
 			}
 		}
+
 		//class Crypt
 		//{
 		//	#region des实现
@@ -217,6 +221,7 @@ namespace DotNet4.Utilities
 				ds.ReadXml(Sr);
 				return ds;
 			}
+
 			/// <summary>
 			/// 根据DATASET压缩字符串
 			/// </summary>
@@ -226,6 +231,7 @@ namespace DotNet4.Utilities
 			{
 				return GZipCompressString(ds);
 			}
+
 			/// <summary>
 			/// 将传入字符串以GZip算法压缩后，返回Base64编码字符
 			/// </summary>
@@ -243,8 +249,8 @@ namespace DotNet4.Utilities
 					byte[] zippedData = Compress(rawData);
 					return (string)(Convert.ToBase64String(zippedData));
 				}
-
 			}
+
 			/// <summary>
 			/// GZip压缩
 			/// </summary>
@@ -258,6 +264,7 @@ namespace DotNet4.Utilities
 				compressedzipStream.Close();
 				return ms.ToArray();
 			}
+
 			/// <summary>
 			/// 将传入的二进制字符串资料以GZip算法解压缩
 			/// </summary>
@@ -275,6 +282,7 @@ namespace DotNet4.Utilities
 					return (string)(System.Text.Encoding.UTF8.GetString(Decompress(zippedData)));
 				}
 			}
+
 			/// <summary>
 			/// ZIP解压
 			/// </summary>
@@ -298,6 +306,7 @@ namespace DotNet4.Utilities
 				return outBuffer.ToArray();
 			}
 		}
+
 		public class HttpUtil
 		{
 			public static string GetDomainName(string url)
@@ -309,6 +318,7 @@ namespace DotNet4.Utilities
 				Regex reg = new Regex(@"(?<=://)([\w-]+\.)+[\w-]+(?<=/?)");
 				return reg.Match(url, 0).Value.Replace("/", string.Empty);
 			}
+
 			public static long TimeStamp
 			{
 				get
@@ -321,30 +331,36 @@ namespace DotNet4.Utilities
 			/// <summary>
 			/// 随机生成16位的UUID
 			/// </summary>
-			public static string UUID {
-				get {
+			public static string UUID
+			{
+				get
+				{
 					var tmp = new StringBuilder(16);
 					var rnd = new Random();
-					for(int i = 0; i < 16; i++)
+					for (int i = 0; i < 16; i++)
 					{
-						tmp.Append(rnd.Next(0,9));
+						tmp.Append(rnd.Next(0, 9));
 					}
 					return tmp.ToString();
 				}
 			}
-			public static string UfUID {
-				get {
+
+			public static string UfUID
+			{
+				get
+				{
 					var tmp = new byte[8];
 					var rnd = new Random();
 					rnd.NextBytes(tmp);
 					var cst = new StringBuilder();
-					foreach(var c in tmp)
+					foreach (var c in tmp)
 					{
 						cst.Append(string.Format("{0:x}", Convert.ToInt32(c)));
 					}
 					return cst.ToString();
 				}
 			}
+
 			/// <summary>
 			/// 通过MD5CryptoServiceProvider类中的ComputeHash方法直接传入一个FileStream类实现计算MD5
 			/// 操作简单，代码少，调用即可
@@ -364,23 +380,25 @@ namespace DotNet4.Utilities
 				fs.Close();
 				return result;
 			}
+
 			/// <summary>
 			/// 格式化输出md5
 			/// </summary>
 			/// <param name="raw">原始数据</param>
 			/// <param name="formatModel">格式默认为16进制小写</param>
 			/// <returns></returns>
-			public static string ToMD5(string raw,string formatModel="x2")
+			public static string ToMD5(string raw, string formatModel = "x2")
 			{
 				MD5 md5 = MD5.Create();
 				byte[] s = md5.ComputeHash(Encoding.UTF8.GetBytes(raw));
 				var result = new StringBuilder();
 				for (int i = 0; i < s.Length; i++)
 				{
-					result.Append( s[i].ToString(formatModel));
+					result.Append(s[i].ToString(formatModel));
 				}
-				return result.ToString() ;
+				return result.ToString();
 			}
+
 			/// <summary>
 			/// Unicode编码
 			/// </summary>
@@ -401,6 +419,7 @@ namespace DotNet4.Utilities
 			}
 
 			private static Regex unicodeRegex = new Regex(@"(?i)\\[uU]([0-9a-f]{4})");
+
 			/// <summary>
 			/// Unicode解码
 			/// </summary>
@@ -409,9 +428,10 @@ namespace DotNet4.Utilities
 			public static string DecodeUnicode(string str)
 			{
 				//最直接的方法Regex.Unescape(str);
-				
+
 				return unicodeRegex.Replace(str, delegate (Match m) { return ((char)Convert.ToInt32(m.Groups[1].Value, 16)).ToString(); });
 			}
+
 			/// <summary>
 			/// 将16进制转换成10进制
 			/// </summary>
@@ -425,11 +445,10 @@ namespace DotNet4.Utilities
 				}
 				catch (Exception)
 				{
-
 				}
 				return 0;
-
 			}
+
 			public static string GetCurrentPath(string url)
 			{
 				int index = url.LastIndexOf("/");
@@ -444,48 +463,34 @@ namespace DotNet4.Utilities
 				}
 			}
 
-			/// <summary>
-			/// 将字符串转换成数字，错误返回0
-			/// </summary>
-			/// <param name="strs">字符串</param>
-			/// <returns></returns>
-			public static int ConvertToInt(string str)
-			{
 
-				try
-				{
-					return int.Parse(str);
-				}
-				catch (Exception e)
-				{
-					//AppendText("info:-" + e.Message);
-				}
-				return 0;
-
-			}
-			public static string RemoveElementItem(string iniContent,string item,int beginPos=0)
+			public static string RemoveElementItem(string iniContent, string item, int beginPos = 0)
 			{
 				return RemoveElement(iniContent, string.Format("<{0}>", item), string.Format("</{0}>", item), beginPos);
 			}
-			public static string RemoveElement(string iniContent,string beginContent,string endContent,int beginPos = 0)
+
+			public static string RemoveElement(string iniContent, string beginContent, string endContent, int beginPos = 0)
 			{
 				TextPoint point = new TextPoint(iniContent, beginContent, endContent, beginPos);
 				if (point.BeginIndex > 0)
 					return iniContent.Remove(point.BeginIndex, point.EndIndex - point.BeginIndex);
 				else return iniContent;
 			}
+
 			public static string GetElement(string iniContent, string beginContent, string endContent, int beginPos = 0)
 			{
-				TextPoint point = new TextPoint(iniContent, beginContent, endContent,beginPos);
+				TextPoint point = new TextPoint(iniContent, beginContent, endContent, beginPos);
 				return point.Info;
 			}
-			public static string GetElementInItem(string iniContent, string item, int beginPos =0)
+
+			public static string GetElementInItem(string iniContent, string item, int beginPos = 0)
 			{
-				return GetElement(iniContent,string.Format ("<{0}>",item),string.Format ("</{0}>",item),beginPos);
+				return GetElement(iniContent, string.Format("<{0}>", item), string.Format("</{0}>", item), beginPos);
 			}
-			public static IList<string> GetAllElements(string iniContext,string beginContent,string endContent,int maxNum=0,int beginPos = 0)
+
+			public static IList<string> GetAllElements(string iniContext, string beginContent, string endContent, int maxNum = 0, int beginPos = 0)
 			{
-				IList<string> result=new List<string>();
+				IList<string> result = new List<string>();
 				do
 				{
 					TextPoint p = new TextPoint(iniContext, beginContent, endContent, beginPos);
@@ -495,14 +500,15 @@ namespace DotNet4.Utilities
 				} while (true);
 				return result;
 			}
-			public static IList<string> GetLines(string iniContent,string beginLineContain,string endLineContain,int maxNum=0,int beginPos = 0)
+
+			public static IList<string> GetLines(string iniContent, string beginLineContain, string endLineContain, int maxNum = 0, int beginPos = 0)
 			{
 				IList<string> result = new List<string>();
-				
-				var lines = iniContent.Split(new string[] { "\r\n" },StringSplitOptions.None);
-				bool findBegin = false ;
-				int beginLineIndex=0;
-				for(int i=0;i<lines.Length;i++)
+
+				var lines = iniContent.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+				bool findBegin = false;
+				int beginLineIndex = 0;
+				for (int i = 0; i < lines.Length; i++)
 				{
 					var line = lines[i];
 					if (!findBegin)
@@ -513,9 +519,9 @@ namespace DotNet4.Utilities
 					else
 					{
 						bool getEnd = false;
-						if(endLineContain == null)
+						if (endLineContain == null)
 						{
-							getEnd = line.Length<=1;
+							getEnd = line.Length <= 1;
 						}
 						else
 						{
@@ -529,47 +535,51 @@ namespace DotNet4.Utilities
 								cstr.Append(lines[j]).Append('\r').Append('\n');
 							}
 							cstr.Append(lines[i]);
-							result.Add( cstr.ToString());
+							result.Add(cstr.ToString());
 							findBegin = false;
 						}
 					}
-					
-
 				}
 				return result;
 			}
 
-			internal static string GetElementLeft(string content, string left)
+			public static string GetElementLeft(string content, string left)
 			{
-				return GetElement("#theEnd#"+content,"#theEnd#",left);
-			}
-			internal static string GetElementRight(string content, string right)
-			{
-				return GetElement(content+"#theEnd#", right, "#theEnd#");
+				return GetElement("#theEnd#" + content, "#theEnd#", left);
 			}
 
-			class TextPoint
+			public static string GetElementRight(string content, string right)
 			{
-				private int beginIndex,endIndex;
+				return GetElement(content + "#theEnd#", right, "#theEnd#");
+			}
+
+			private class TextPoint
+			{
+				private int beginIndex, endIndex;
 				private bool init;
 				private string info;
+
 				public TextPoint(string content, string cutBegin, string cutEnd, int countBegin)
 				{
 					if (content == null)
 						return;
 					if (content.Length < cutBegin.Length) return;
 					beginIndex = content.IndexOf(cutBegin, countBegin);
-					if (beginIndex == -1) 
+					if (beginIndex == -1)
 						return;
 					else
 						beginIndex += cutBegin.Length;
-					endIndex = content.IndexOf(cutEnd, beginIndex) ;
-					if (EndIndex > 0) {
+					endIndex = content.IndexOf(cutEnd, beginIndex);
+					if (EndIndex > 0)
+					{
 						Init = true;
 						Info = content.Substring(beginIndex, endIndex - beginIndex);
 					}
 				}
-				public TextPoint(string content, string cutBegin, string cutEnd) : this(content, cutBegin, cutEnd,0) { }
+
+				public TextPoint(string content, string cutBegin, string cutEnd) : this(content, cutBegin, cutEnd, 0)
+				{
+				}
 
 				public int BeginIndex { get => beginIndex; set => beginIndex = value; }
 				public int EndIndex { get => endIndex; set => endIndex = value; }
@@ -577,40 +587,44 @@ namespace DotNet4.Utilities
 				public string Info { get => info; set => info = value; }
 			}
 		}
+
 		public class WebForm
 		{
 			private string formName;
 			private string formAction;
+
 			/// <summary>
 			/// 输入整页,输出目标表单字段
 			/// </summary>
 			/// <param name="formInfo">原始数据</param>
 			/// <param name="targetFormName">表单名称</param>
 			/// <param name="targetMatchName">匹配表单方式 reg.Match=> name="[formName]"</param>
-			public WebForm(string formInfo,string targetFormName,string targetMatchName="name")
+			public WebForm(string formInfo, string targetFormName, string targetMatchName = "name")
 			{
 				IList<string> fromInfos;
 				bool findTarget = false;
 				string targetAction = "";
 				var pageForms = HttpUtil.GetAllElements(formInfo, "<form", "</form>");
-				var tarString= targetMatchName+"=\"" + targetFormName + "\"";
+				var tarString = targetMatchName + "=\"" + targetFormName + "\"";
 				foreach (var form in pageForms)
 				{
-					if (form.Contains(tarString)) {findTarget=true; tarString = form; targetAction =HttpUtil.GetElement(form, "action=\"","\""); break; }
+					if (form.Contains(tarString)) { findTarget = true; tarString = form; targetAction = HttpUtil.GetElement(form, "action=\"", "\""); break; }
 				}
-				if (!findTarget) tarString =pageForms.Count>0? pageForms[0]:"";
+				if (!findTarget) tarString = pageForms.Count > 0 ? pageForms[0] : "";
 				fromInfos = HttpUtil.GetAllElements(tarString, "<input", ">");
 				Build(fromInfos, targetFormName, targetAction);
 			}
+
 			private Dictionary<string, string> input;
 
 			public string FormName { get => formName; set => formName = value; }
 			public string FormAction { get => formAction; set => formAction = value; }
-			
-			public WebForm(IList<string> formInfo,string formName=null,string formAction=null)
+
+			public WebForm(IList<string> formInfo, string formName = null, string formAction = null)
 			{
-				Build(formInfo, formName, formAction) ;
+				Build(formInfo, formName, formAction);
 			}
+
 			private void Build(IList<string> formInfo, string formName = null, string formAction = null)
 			{
 				input = new Dictionary<string, string>(formInfo.Count);
@@ -621,11 +635,13 @@ namespace DotNet4.Utilities
 					if (key != null) input[key] = value;
 				}
 			}
+
 			public string this[string key]
 			{
 				get => input[key];
 				set => input[key] = value;
 			}
+
 			public override string ToString()
 			{
 				var cstr = new StringBuilder();
@@ -644,10 +660,10 @@ namespace DotNet4.Utilities
 		{
 			//默认密钥
 			private static string aESKey = "[48/*Serfend.e;]";
+
 			private static string dESKey = "[&Ser75]";
 			public static string AESKey { get => aESKey; set => aESKey = value; }
 			public static string DESKey { get => dESKey; set => dESKey = value; }
-
 
 			/// 对字符串进行SHA1加密
 			/// </summary>
@@ -665,8 +681,9 @@ namespace DotNet4.Utilities
 				}
 				return EnText.ToString().ToUpper();
 			}
-			/// <summary> 
-			/// AES加密 
+
+			/// <summary>
+			/// AES加密
 			/// </summary>
 			public static string AESEncrypt(string value, string _aeskey = null)
 			{
@@ -691,8 +708,8 @@ namespace DotNet4.Utilities
 				return Convert.ToBase64String(resultArray, 0, resultArray.Length);
 			}
 
-			/// <summary> 
-			/// AES解密 
+			/// <summary>
+			/// AES解密
 			/// </summary>
 			public static string AESDecrypt(string value, string _aeskey = null)
 			{
@@ -722,8 +739,8 @@ namespace DotNet4.Utilities
 				}
 			}
 
-			/// <summary> 
-			/// DES加密 
+			/// <summary>
+			/// DES加密
 			/// </summary>
 			public static string DESEncrypt(string value, string _deskey = null)
 			{
@@ -748,8 +765,8 @@ namespace DotNet4.Utilities
 				return Convert.ToBase64String(resultArray, 0, resultArray.Length);
 			}
 
-			/// <summary> 
-			/// DES解密 
+			/// <summary>
+			/// DES解密
 			/// </summary>
 			public static string DESDecrypt(string value, string _deskey = null)
 			{
@@ -794,7 +811,6 @@ namespace DotNet4.Utilities
 				byte[] result = System.Text.Encoding.UTF8.GetBytes(value);
 				byte[] output = hmacsha1.ComputeHash(result);
 
-
 				return BitConverter.ToString(output).Replace("-", "");
 			}
 
@@ -807,6 +823,7 @@ namespace DotNet4.Utilities
 				string result = Convert.ToBase64String(Encoding.UTF8.GetBytes(value));
 				return result;
 			}
+
 			/// <summary>
 			/// base64解码
 			/// </summary>
@@ -816,8 +833,6 @@ namespace DotNet4.Utilities
 				string result = Encoding.UTF8.GetString(Convert.FromBase64String(value));
 				return result;
 			}
-
-
 		}
 	}
 }

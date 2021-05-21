@@ -1,4 +1,6 @@
 ﻿using DotNet4.Utilities.UtilCode;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -70,19 +72,19 @@ namespace Goods.Summon
 				return skillList;
 			}
 			public Server.Server server;
-			public Summon(Node Summon,Server.Server server)
+			public Summon(JToken Summon,Server.Server server)
 			{
-				if (Summon.child.Count < 3) return;
+				if (Summon.Children().Count() < 3) return;
 				this.server = server;
 				var raw_data = Summon["raw_data"];
-				var baseInfo = raw_data["base"].Data.Replace(' ', '#');
-				Rank = HttpUtil.GetElement(baseInfo, "等级#", "#");
+				var baseInfo = raw_data["base"].ToString().Replace(' ', '#');
+				Rank = HttpUtil.GetElement(baseInfo, "等级#", "#") ??"";
 
 				成长率 = Convert.ToDouble(HttpUtil.GetElement(baseInfo, "成长率#", "#"));
-				Name = raw_data["name"].Data;
-				CDesc = Summon["cDesc"].Data;
+				Name = raw_data["name"].ToString();
+				CDesc = Summon["cDesc"]?.ToString()??"";
 				变色 = CDesc.Contains("变色");
-				var skillInfo = raw_data["skill"].Data.Replace("；", "#r");
+				var skillInfo = raw_data["skill"].ToString().Replace("；", "#r");
 				HaveSpecialSkill = !skillInfo.Contains("未觉醒");
 				var skillRaw = HttpUtil.GetAllElements(skillInfo, "技能", "#r");
 				if (skillInfo.Contains("技能修炼"))
@@ -100,7 +102,7 @@ namespace Goods.Summon
 					if (thisSkill.Valid) Skills.Add(thisSkill);
 				}
 				if (CDesc.Contains("饰品"))
-					饰品品质 = HttpUtil.GetElement(CDesc, "品质：", "#");
+					饰品品质 =  HttpUtil.GetElement(CDesc, "品质：", "#");
 				else
 					饰品品质 = "-1";
 				foreach (var rankRule in InvalidRankRule)

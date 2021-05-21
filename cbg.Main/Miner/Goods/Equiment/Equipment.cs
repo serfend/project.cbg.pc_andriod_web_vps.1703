@@ -1,6 +1,7 @@
 ﻿using DotNet4.Utilities.UtilCode;
 using DotNet4.Utilities.UtilReg;
 using Miner.Server;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,11 +34,11 @@ namespace Miner.Goods.Equiment
 		/// </summary>
 		/// <param name="rawInfo"></param>
 		/// <param name="server"></param>
-		public Equipment(Node rawInfo,Server.Server server)
+		public Equipment(JToken rawInfo,Server.Server server)
 		{
-			if (rawInfo.child.Count < 3) return;
+			if (rawInfo.Children().Count() < 3) return;
 			this.Server = server;
-			desByWeb= rawInfo["cDesc"].Data;
+			desByWeb= rawInfo["cDesc"].ToString();
 			var rawPrivityInfo = HttpUtil.GetElement(desByWeb, "默契度 ", "#");
 			if (rawPrivityInfo != null)
 			{
@@ -54,7 +55,7 @@ namespace Miner.Goods.Equiment
 				}
 			}
 			Init = true;
-			Itype = Convert.ToInt32(rawInfo["iType"]?.Data);
+			Itype = Convert.ToInt32(rawInfo["iType"]?.ToString());
 			var nameDic = TypeConvertor.In("equip_name_dict");
 			var desDic = TypeConvertor.In("equip_desc_dict");
 			Name = nameDic.GetInfo(Itype.ToString()).Replace("'","");

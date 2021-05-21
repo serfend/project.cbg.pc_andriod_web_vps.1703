@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using Miner.Server;
 using Miner.Goods.Equiment;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace Miner
 {
@@ -15,7 +17,7 @@ namespace Miner
 		{
 			private string name;
 			private string id;
-			private readonly Node goodInfo;
+			private readonly JObject goodInfo;
 			private string bookStatus;//可预订:2,已预订:4
 			private string price;
 			private double assumePrice = -1;//本地估价
@@ -127,44 +129,44 @@ namespace Miner
 			private void Init()
 			{
 				//rank = goodInfo["iGrade"].Data;  此来源不准确
-				IFlyupFlag = goodInfo["iFlyupFlag"].Data;
-				ITalent = goodInfo["iTalent"].Data;
-				IAchievement = goodInfo["iAchievement"].Data;
-				IChengjiu = goodInfo["iChengjiu"].Data;
-				ISingleEnergyRate = goodInfo["iSingleEnergyRate"].Data;
-				ICash = goodInfo["iCash"].Data;
-				ISaving = goodInfo["iSaving"].Data;
+				IFlyupFlag = goodInfo["iFlyupFlag"].ToString();
+				ITalent = goodInfo["iTalent"].ToString();
+				IAchievement = goodInfo["iAchievement"].ToString();
+				IChengjiu = goodInfo["iChengjiu"].ToString();
+				ISingleEnergyRate = goodInfo["iSingleEnergyRate"].ToString();
+				ICash = goodInfo["iCash"].ToString();
+				ISaving = goodInfo["iSaving"].ToString();
 				var SummonList = goodInfo["SummonList"];
 				summons = new List<Summon.Summon>();
-				foreach (var summon in SummonList)
+				foreach (var summon in SummonList.Children())
 				{
 					var thisSummon = new Summon.Summon(summon, server);
 					if (thisSummon.Valid) summons.Add(thisSummon);
 				}
 				var equipments = goodInfo["mpEquip"];//利用itype获取装备名称
 				this.equipments = new List<Equipment>();
-				foreach (var equipment in equipments.child)
+				foreach (var equipment in equipments.Children())
 				{
 					var tmpRquiment = new Equipment(equipment, server);
 					if (tmpRquiment.Init)
 						this.equipments.Add(tmpRquiment);
 				}
 				equipments = goodInfo["ItemList"];
-				foreach (var equipment in equipments.child)
+				foreach (var equipment in equipments.Children())
 				{
 					var tmpEquiment = new Equipment(equipment, server);
 					if (tmpEquiment.Init)
 						this.equipments.Add(tmpEquiment);
 				}
 				equipments = goodInfo["mpFabao"];
-				foreach (var equipment in equipments.child)
+				foreach (var equipment in equipments.Children())
 				{
 					var tmpEquiment = new Equipment(equipment, server);
 					if (tmpEquiment.Init)
 						this.equipments.Add(tmpEquiment);
 				}
 				equipments = goodInfo["DiXingList"];
-				foreach (var equipment in equipments.child)
+				foreach (var equipment in equipments.Children())
 				{
 					var tmpEquiment = new Equipment(equipment, server);
 					if (tmpEquiment.Init)
@@ -327,8 +329,7 @@ namespace Miner
 				this.ID = id;
 				var convertInfo = info.Replace("([", "{").Replace("])", "}");
 				convertInfo = convertInfo.Replace("({", "{").Replace("})", "}");
-				this.goodInfo = new Node();
-				this.goodInfo.Init(ref convertInfo, 0, convertInfo.Length);
+				this.goodInfo = JsonConvert.DeserializeObject(convertInfo) as  JObject;
 				Init();
 			}
 
