@@ -37,8 +37,9 @@ namespace DotNet4.Utilities.UtilReg
 		}
 		public static void SysLog(string logInfo,string CataPath)
         {
-			Console.WriteLine(logInfo);
-			//TODO 关闭日志 SysLog(logInfo, defaultPath, CataPath);
+			//Console.WriteLine(logInfo);
+			//TODO 关闭日志 
+			SysLog(logInfo, defaultPath, CataPath);
 		}
 		private static bool isOnDevelopeModel=true;
         private static readonly object c = "";
@@ -59,7 +60,7 @@ namespace DotNet4.Utilities.UtilReg
 					using (var sw = new StreamWriter(fs_dir))
 					{
 						if (isOnDevelopeModel) { sw.WriteLine(logInfo); }else { sw.WriteLine((logInfo)); }
-						System.Diagnostics.Debug.WriteLine("logger:" + logInfo);
+						//System.Diagnostics.Debug.WriteLine("logger:" + logInfo);
 						OnLog?.Invoke(null,new LogInfoEventArgs(logInfo, path));
 					}
 				}
