@@ -23,7 +23,7 @@ using Newtonsoft.Json.Linq;
 
 namespace Miner
 {
-	internal class Program
+	internal partial class Program
 	{
 		public static Setting setting;
 		public static ServerList servers;
@@ -69,6 +69,7 @@ namespace Miner
 		public static string TcpFileTubeIp = "127.0.0.1";
 		public static int TcpFileTubePort = 8010;
 
+
 		[STAThreadAttribute]
 		private static void Main(string[] args)
 		{
@@ -88,10 +89,12 @@ namespace Miner
 
 			rootReg = new Reg("sfMinerDigger");
 			clientId = rootReg.In("Main").In("Setting");
-
-			Logger.OnLog += (x, xx) => { Console.WriteLine(xx.LogInfo); };
+			CheckLastLoadEquipmentSetting();
 			if (rootReg.In("Setting").GetInfo("developeModel") == "1")
+            {
+				Logger.OnLog += (x, xx) => { Console.WriteLine(xx.LogInfo); };
 				Logger.IsOnDevelopeModel = true;
+			}
 
 			try
 			{
@@ -138,6 +141,7 @@ namespace Miner
 							{
 								if (idleTime-- < 0 && anyTaskWorking == false)
 								{
+									CheckLastLoadEquipmentSetting();
 									HelloToServer();
 									idleTime = 30;
 								}
@@ -179,124 +183,6 @@ namespace Miner
 				Thread.Sleep(5000);
 			}
 		}
-
-		private static void InitTcp()
-		{
-			Console.WriteLine("重置通信节点");
-			if (Tcp != null)
-			{
-				Tcp?.Dispose();
-				Tcp = null;
-				Thread.Sleep(1000);//等待资源释放
-			}
-			try
-			{
-				Tcp = new TcpClient(TcpMainTubeIp, TcpMainTubePort);
-			}
-			catch (Exception ex)
-			{
-				Logger.SysLog("建立连接失败 " + ex.Message, "ExceptionLog");
-				vpsStatus = VpsStatus.WaitConnect;
-				return;
-			}
-			InitCallBackTcp();
-		}
-
-		private static bool vpsIsDigging = false;
-
-		private static void InitCallBackTcp()
-		{
-			try
-			{
-				if (Tcp == null) return;
-				Tcp.OnMessage += Tcp_OnMessage;
-				Tcp.OnDisconnected += Tcp_OnDisconnected;
-				Tcp.OnConnected += Tcp_OnConnected;
-				MinerCallBackInit();
-				Tcp.Client.Connect();
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine("InitCallBackTcp()" + ex.Message);
-				vpsStatus = VpsStatus.WaitConnect;
-			}
-		}
-
-		private static void Tcp_OnConnected(object sender, ServerConnectEventArgs e)
-		{
-			vpsStatus = VpsStatus.Syning;
-			Thread.Sleep(1000);
-			HelloToServer();
-		}
-
-		private static void Tcp_OnDisconnected(object sender, ServerDisconnectEventArgs e)
-		{
-			Logger.SysLog("与服务器丢失连接", "主记录");
-			Tcp?.Dispose();
-			Tcp = null;
-			anyTaskWorking = false;
-			Program.vpsStatus = VpsStatus.WaitConnect;
-		}
-
-		private static void Tcp_OnMessage(object sender, ClientMessageEventArgs e)
-		{
-			//Logger.SysLog(e.RawString, "通讯记录");
-			try
-			{
-				Console.WriteLine($"来自服务器:{e.RawString}");
-				MinerCallBack.Exec(e);
-			}
-			catch (ActionNotRegException ex)
-			{
-				Console.WriteLine($"读取数据发生异常:{ex.Message}\n{e.RawString}");
-			}
-		}
-
-		private static void SynServerLoginSession(MsgSynSessionMessage setting)
-		{
-			foreach (var mdServer in setting.List)
-			{
-				foreach (var server in servers.HdlServer)
-				{
-					if (server.ServerName == mdServer.AliasName)
-					{
-						server.LoginSession = mdServer.LoginSession;
-						Program.setting.LogInfo($"服务器登录凭证更新:{server.ServerName}->{mdServer.LoginSession}");
-					}
-				}
-			}
-		}
-
-		public static void RedialToInternet()
-		{
-			//Program.Tcp?.Dispose();
-			var t = new Task(() =>
-			{
-				Task.Delay(1000);
-				var p = new CmdRasdial();
-				p.DisRasdial();
-				Task.Delay(1000);
-				p.Rasdial();
-				Program.vpsStatus = VpsStatus.WaitConnect;
-			});
-			t.Start();
-		}
-
-		private static void HelloToServer()
-		{
-			try
-			{
-				var vpsName = clientId.GetInfo("VpsClientId", "null");
-				var clientDeviceId = clientId.GetInfo("clientDeviceId", HttpUtil.UUID);
-				clientId.SetInfo("clientDeviceId", clientDeviceId);
-				Tcp?.Send(new RpClientConnectMessage("vps", Assembly.GetExecutingAssembly().GetName().Version.ToString(), clientDeviceId, vpsName));
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine("HelloToServer()" + ex.Message);
-			}
-		}
-
 		private static void TranslateFileStart()
 		{
 			Logger.SysLog("准备接收文件", "主记录");
@@ -396,156 +282,5 @@ namespace Miner
 			Tcp.Send(new RpClientRunReadyMessage());
 		}
 
-		#region MinerCallBack
-
-		private static void MinerCallBackInit()
-		{
-			MinerCallBack.Init();
-			MinerCallBack.RegCallback(TcpMessageEnum.MsgHeartBeat, MinerCallBack_MsgHeartBeat);
-			MinerCallBack.RegCallback(TcpMessageEnum.CmdSetClientName, MinerCallBack_CmdSetClientName);
-			MinerCallBack.RegCallback(TcpMessageEnum.CmdSynInit, MinerCallBack_CmdSynInit);
-			MinerCallBack.RegCallback(TcpMessageEnum.CmdServerRun, MinerCallBack_CmdServerRun);
-			MinerCallBack.RegCallback(TcpMessageEnum.MsgSynFileList, MinerCallBack_MsgSynFileList);
-			MinerCallBack.RegCallback(TcpMessageEnum.CmdTransferFile, MinerCallBack_CmdTransferFile);
-			MinerCallBack.RegCallback(TcpMessageEnum.CmdModefyTargetUrl, MinerCallBack_CmdModefyTargetUrl);
-			MinerCallBack.RegCallback(TcpMessageEnum.CmdReRasdial, MinerCallBack_CmdReRasdial);
-			MinerCallBack.RegCallback(TcpMessageEnum.CmdStartNewProgram, MinerCallBack_CmdStartNewProgram);
-			MinerCallBack.RegCallback(TcpMessageEnum.CmdSubClose, MinerCallBack_CmdSubClose);
-			MinerCallBack.RegCallback(TcpMessageEnum.MsgSynSession, MinerCallBack_MsgSynSession);
-			MinerCallBack.RegCallback(TcpMessageEnum.CmdServerRunSchedule, MinerCallBack_CmdServerRunSchedule);
-		}
-
-		private static void MinerCallBack_MsgHeartBeat(ClientMessageEventArgs e)
-		{
-			Console.WriteLine("服务器保持连接确认");
-		}
-
-		private static void MinerCallBack_CmdSetClientName(ClientMessageEventArgs e)
-		{
-			var ClientName = e.Message["NewName"]?.ToString();
-			setting = new Setting(ClientName);
-			clientId.SetInfo("VpsClientId", ClientName);
-			Tcp.Send(new RpNameModefiedMessage(ClientName, true));
-		}
-
-		private static void MinerCallBack_CmdSynInit(ClientMessageEventArgs e)
-		{
-			var interval = e.Message["Interval"];
-			var assumePriceRate = e.Message["AssumePriceRate"];
-			if (interval == null || assumePriceRate == null)
-			{
-				Tcp.Send(new RpMsgInvalidMessage("synInit"));
-				return;
-			}
-			InitSetting(Convert.ToInt32(interval), Convert.ToDouble(assumePriceRate));
-			Program.vpsStatus = VpsStatus.Syning;
-			Tcp.Send(new RpInitCompletedMessage());
-		}
-
-		private static void MinerCallBack_CmdServerRun(ClientMessageEventArgs e)
-		{
-			ServerResetConfig();
-		}
-
-		private static void MinerCallBack_MsgSynFileList(ClientMessageEventArgs e)
-		{
-			var rawList = e.Message["List"];
-			var list = new List<SynSingleFile>();
-
-			foreach (var item in rawList)
-			{
-				list.Add(new SynSingleFile()
-				{
-					Name = item["Name"]?.ToString(),
-					Version = item["Version"]?.ToString()
-				});
-			}
-
-			var synFileList = new MsgSynFileListMessage(list);
-			SynFile(synFileList);
-		}
-
-		private static void MinerCallBack_CmdTransferFile(ClientMessageEventArgs e)
-		{
-			TranslateFileStart();
-		}
-
-		private static void MinerCallBack_CmdModefyTargetUrl(ClientMessageEventArgs e)
-		{
-			InnerTargetUrl = e.Message["NewUrl"]?.ToString();
-		}
-
-		private static void MinerCallBack_CmdReRasdial(ClientMessageEventArgs e)
-		{
-			Tcp.Send(new RpReRasdialMessage("cmd"));
-			RedialToInternet();
-		}
-
-		private static void MinerCallBack_CmdStartNewProgram(ClientMessageEventArgs e)
-		{
-			StartNewProgram();
-		}
-
-		private static void MinerCallBack_CmdSubClose(ClientMessageEventArgs e)
-		{
-			Environment.Exit(0);
-		}
-
-		private static void MinerCallBack_MsgSynSession(ClientMessageEventArgs e)
-		{
-			var synLoginItemList = new List<SynSessionItem>();
-			var synLoginSession = new MsgSynSessionMessage(synLoginItemList);
-			SynServerLoginSession(synLoginSession);
-		}
-
-		private static void MinerCallBack_CmdServerRunSchedule(ClientMessageEventArgs e)
-		{
-			var s = new Thread(() =>
-			{
-				var nextRuntimeStamp = Convert.ToInt32(e.Message["TaskStamp"]?.ToString());
-				ServerBeginRun(nextRuntimeStamp);
-			})
-			{ IsBackground = true };
-			s.Start();
-		}
-
-		private static void ServerBeginRun(int nextRuntimeStamp)
-		{
-			vpsStatus = VpsStatus.Running;
-			if (vpsIsDigging)
-			{
-				Console.WriteLine("警告,同时出现多个采集实例");
-				return;
-			}
-			vpsIsDigging = true;
-			try
-			{
-				//if (nextRuntimeStamp > 499) Tcp.Send(new RpClientWaitMessage(0, 0, 101));//开始等待
-				Thread.Sleep(nextRuntimeStamp);
-				//if (nextRuntimeStamp > 499) Tcp.Send(new RpClientWaitMessage(0, 0, -101));//结束等待
-				//	if (servers == null)
-				//	{
-				//		Console.WriteLine("servers未初始化");
-				//		return;
-				//	}
-				var ticker = new Win32.HiperTicker();
-				ticker.Record();
-				//Thread.Sleep(60);
-				int hdlGoodNum = servers.ServerRun();
-				var avgInterval = (int)(ticker.Duration / 1000);// Program.setting.threadSetting.RefreshRunTime((int)(ticker.Duration / 1000));
-																//TODO 此处估价似乎也有延迟
-				Program.Tcp?.Send(new RpClientWaitMessage(avgInterval, hdlGoodNum, 0));
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine($"处理日程失败;{ex.Message}\n{ex.StackTrace}");
-			}
-			finally
-			{
-				vpsIsDigging = false;
-			}
-		}
-
-		#endregion MinerCallBack
 	}
 }

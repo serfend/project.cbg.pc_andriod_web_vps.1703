@@ -116,6 +116,9 @@
   <ItemGroup>
     <Compile Include="HiperTicker.cs" />
     <Compile Include="MinerCallBack.cs" />
+    <Compile Include="Programs\Callback.cs" />
+    <Compile Include="Programs\Equipment.cs" />
+    <Compile Include="Programs\Server.cs" />
     <Compile Include="ServerHandle\AppInterface.cs" />
     <Compile Include="ServerHandle\AppInterfaceData.cs" />
     <Compile Include="ServerHandle\BillPoster.cs" />

@@ -209,7 +209,6 @@ namespace 订单信息服务器
 			if (_taskAllocatePause) CmdPauseTaskAllocate.Text = "唤醒终端";
 			else CmdPauseTaskAllocate.Text = "暂停终端";
 		}
-
 		#endregion event
 
 		private void CmdPayBill_Click(object sender, EventArgs e)

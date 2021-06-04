@@ -47,7 +47,7 @@ namespace Miner.Goods.Equiment
 				var tmpPrivityInfo = rawPrivityInfo.Split('/');
 				if (tmpPrivityInfo.Length < 2)
 				{
-					// Program.setting.LogInfo("装备加载失败,在 默契度 处:" + desByWeb, server.ServerName);
+					Program.setting.LogInfo("装备加载失败,在 默契度 处:" + desByWeb, server.ServerName);
 				}
 				else
 				{
