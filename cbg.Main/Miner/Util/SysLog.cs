@@ -33,7 +33,7 @@ namespace DotNet4.Utilities.UtilReg
         public static void SysLog(string logInfo, string logBase, string CataPath)
         {
             //AppendLogToFile(string.Format("{0}/{1}-{2}.log", logBase, DateTime.Now.ToString("yyMMdd"), CataPath), string.Format("{0}:{1}", HttpUtil.TimeStamp, logInfo));
-            AppendLogToFile(string.Format("{0}/{1}-{2}.log", logBase, DateTime.Now.ToString("yyMMdd"), CataPath), string.Format("{0}:{1}", DateTime.Now.ToString("yyMMddhhmmss"), logInfo));
+            AppendLogToFile(string.Format($"{logBase}/{DateTime.Now.ToString("yyMMdd")}-{CataPath}.log"), $"{DateTime.Now.ToString("yyMMddhhmmss")}:{logInfo}");
         }
         public static void SysLog(string logInfo, string CataPath)
         {
@@ -41,7 +41,7 @@ namespace DotNet4.Utilities.UtilReg
             //TODO 关闭日志 
             SysLog(logInfo, defaultPath, CataPath);
         }
-        private static bool isOnDevelopeModel = true;
+        private static bool isOnDevelopeModel = false;
         private static readonly object c = "";
 
         public static bool IsOnDevelopeModel { get => isOnDevelopeModel; set => isOnDevelopeModel = value; }
