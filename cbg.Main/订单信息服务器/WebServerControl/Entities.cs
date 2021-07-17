@@ -55,6 +55,10 @@ namespace 订单信息服务器.WebServerControl
 		public string PriceRequire { get; set; }
 
 		public string Url { get; set; }
+		/// <summary>
+		/// 商品创建时间
+		/// </summary>
+		public DateTime GoodsCreate { get; set; }
 	}
 
 	/// <summary>

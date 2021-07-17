@@ -99,6 +99,7 @@
             this.Verify = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ServerHdl = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Psw = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.GoodShowGoodCreateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.TabMain.SuspendLayout();
             this.TabMain_VpsManager.SuspendLayout();
             this.TabMain_Setting.SuspendLayout();
@@ -265,7 +266,8 @@
             this.GoodShowSociatyAchievement,
             this.GoodShowFamilyRank,
             this.GoodShowBuyUrl,
-            this.GoodShowServerNo});
+            this.GoodShowServerNo,
+            this.GoodShowGoodCreateTime});
             this.LstGoodShow.FullRowSelect = true;
             this.LstGoodShow.HideSelection = false;
             this.LstGoodShow.Location = new System.Drawing.Point(4, 730);
@@ -313,11 +315,13 @@
             // 
             // GoodShowBuyUrl
             // 
+            this.GoodShowBuyUrl.DisplayIndex = 9;
             this.GoodShowBuyUrl.Text = "购买链接";
             this.GoodShowBuyUrl.Width = 333;
             // 
             // GoodShowServerNo
             // 
+            this.GoodShowServerNo.DisplayIndex = 10;
             this.GoodShowServerNo.Text = "区号";
             // 
             // OpLogCount
@@ -678,6 +682,12 @@
             this.Psw.Text = "密码";
             this.Psw.Width = 150;
             // 
+            // GoodShowGoodCreateTime
+            // 
+            this.GoodShowGoodCreateTime.DisplayIndex = 8;
+            this.GoodShowGoodCreateTime.Text = "商品时间";
+            this.GoodShowGoodCreateTime.Width = 80;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -766,6 +776,7 @@
 		private System.Windows.Forms.CheckBox IpShowRawMessage;
 		private System.Windows.Forms.ColumnHeader OpLog_From;
 		private System.Windows.Forms.TextBox IpFilterSrc;
+        private System.Windows.Forms.ColumnHeader GoodShowGoodCreateTime;
     }
 }
 

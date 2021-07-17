@@ -93,6 +93,7 @@ namespace Miner
 							var good = new Goods.Goods(new Server(goodDetail.serverid.ToString(), goodDetail.server_name, goodDetail.areaid.ToString(), goodDetail.area_name, ""), goodDetail.equip_name, goodDetail.game_ordersn, goodDetail.equip_desc, goodDetail.equip_detail_url)
 							{
 								Price = goodDetail.price_desc,
+								GoodCreate = DateTime.Parse(goodDetail.create_time),
 								BookStatus = goodDetail.status_desc,
 								Rank = goodDetail.level_desc
 							};

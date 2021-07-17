@@ -241,7 +241,7 @@ namespace 订单信息服务器
 				var ISingleEnergyRate = tmp[7];
 				var BuyUrl = tmp[8];
 				var serverNum = tmp[9];
-
+				var goodCreate = DateTime.Parse(tmp[10]);
 				if (_BillRecord.ContainsKey(BuyUrl))
 				{
 					//AppendLog(ordersn + "已出现过此订单," + serverName);
@@ -271,7 +271,8 @@ namespace 订单信息服务器
 					Level = Rank,
 					PriceAssume = priceNumAssume.ToString(),
 					PriceRequire = priceNum.ToString(),
-					Url = BuyUrl
+					Url = BuyUrl,
+					GoodsCreate = goodCreate
 				};
 				_BillRecord.Add(BuyUrl, goodItem);
 				LstGoodShow.Items.Insert(0, new ListViewItem(tmp));
