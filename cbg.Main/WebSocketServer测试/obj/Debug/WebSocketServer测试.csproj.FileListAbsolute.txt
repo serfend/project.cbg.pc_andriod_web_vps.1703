@@ -79,9 +79,9 @@ C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.170
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\WebSocketServer测试\bin\Debug\SfTcp.pdb
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\WebSocketServer测试\bin\Debug\TcpFiletransfer.pdb
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\WebSocketServer测试\bin\Debug\SfBaseTcp.pdb
-C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\WebSocketServer测试\obj\Debug\WebSocketServer测试.csprojAssemblyReference.cache
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\WebSocketServer测试\obj\Debug\WebSocketServer测试.csproj.CoreCompileInputs.cache
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\WebSocketServer测试\obj\Debug\WebSocketServer测试.csproj.CopyComplete
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\WebSocketServer测试\obj\Debug\WebSocketServer测试.exe
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\WebSocketServer测试\obj\Debug\WebSocketServer测试.pdb
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\WebSocketServer测试\bin\Debug\Interop.MSScriptControl.dll
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\WebSocketServer测试\obj\Debug\WebSocketServer测试.csproj.AssemblyReference.cache

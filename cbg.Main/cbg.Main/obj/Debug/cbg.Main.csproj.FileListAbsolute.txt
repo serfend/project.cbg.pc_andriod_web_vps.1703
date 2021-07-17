@@ -29,7 +29,6 @@ C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.170
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\Newtonsoft.Json.xml
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\bin\Debug\SfBaseTcp.pdb
-C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.csprojAssemblyReference.cache
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.FrmMain.resources
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.Properties.Resources.resources
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.csproj.GenerateResource.cache
@@ -37,3 +36,4 @@ C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.170
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.csproj.CopyComplete
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.exe
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.pdb
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\cbg.Main\obj\Debug\cbg.Main.csproj.AssemblyReference.cache

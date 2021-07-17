@@ -57,4 +57,4 @@ C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.170
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csproj.CopyComplete
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.exe
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.pdb
-C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csprojAssemblyReference.cache
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\EquipSettingLoader\obj\Debug\EquipSettingLoader.csproj.AssemblyReference.cache

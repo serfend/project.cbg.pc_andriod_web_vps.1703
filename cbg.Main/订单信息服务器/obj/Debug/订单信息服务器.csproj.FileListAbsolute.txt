@@ -89,7 +89,6 @@ C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\�
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.exe
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.pdb
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.csproj.CoreCompileInputs.cache
-C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.csprojAssemblyReference.cache
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\Interop.WinHttp.dll
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.csproj.ResolveComReference.cache
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.Form1.resources
@@ -119,3 +118,4 @@ C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.170
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.csproj.CopyComplete
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.exe
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.pdb
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\订单信息服务器\obj\Debug\订单信息服务器.csproj.AssemblyReference.cache

@@ -62,7 +62,6 @@ C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Mi
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\obj\Debug\Miner.pdb
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.exe.CodeAnalysisLog.xml
 C:\Users\huawei\Documents\GitHub\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.exe.lastcodeanalysissucceeded
-C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\obj\Debug\Miner.csprojAssemblyReference.cache
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\obj\Debug\Miner.csproj.CoreCompileInputs.cache
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.exe.config
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\bin\Debug\Miner.exe
@@ -81,3 +80,4 @@ C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.170
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\obj\Debug\Miner.csproj.CopyComplete
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\obj\Debug\Miner.exe
 C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\obj\Debug\Miner.pdb
+C:\Users\sf\source\repos\SGT.shellcode.runner\project.cbg.pc_andriod_web_vps.1703\cbg.Main\Miner\obj\Debug\Miner.csproj.AssemblyReference.cache
